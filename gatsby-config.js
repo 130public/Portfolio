@@ -1,4 +1,6 @@
+require('dotenv').config()
 let contentfulConfig
+
 
 try {
   // Load the Contentful config from the .contentful.json
