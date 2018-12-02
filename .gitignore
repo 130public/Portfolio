@@ -1,0 +1,20 @@
+#FILES
+.DS_Store
+.npm
+.eslintcache
+.env
+.cache
+.grunt
+.contentful.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+#FILE TYPES
+*.log
+*.tgz
+#DIRECTORIES
+logs
+bower_components
+node_modules
+public
+

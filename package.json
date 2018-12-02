@@ -1,0 +1,56 @@
+{
+  "name": "jjgeiger-portfolio",
+  "description": "New portfolio based on Gatsby, Contentful and deployed on Netlify",
+  "version": "1.0.0",
+  "author": "Jason Geiger",
+  "bugs": {
+    "url": ""
+  },
+  "dependencies": {
+    "gatsby-image": "^1.0.55",
+    "gatsby-link": "^1.6.46",
+    "gatsby-plugin-react-helmet": "^1.0.8",
+    "gatsby-plugin-sharp": "^1.6.46",
+    "gatsby-source-contentful": "^1.3.54",
+    "gatsby-transformer-remark": "^1.7.44",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "chalk": "^2.4.1",
+    "contentful-import": "^7.0.4",
+    "dotenv": "^6.1.0",
+    "eslint": "^4.15.0",
+    "eslint-plugin-react": "^7.5.1",
+    "gatsby": "^1.9.277",
+    "gh-pages": "^1.2.0",
+    "inquirer": "^6.0.0",
+    "prettier": "^1.10.2",
+    "rimraf": "^2.6.2",
+    "yargs-parser": "^10.1.0"
+  },
+  "homepage": "",
+  "keywords": [
+    "gatsby",
+    "contentful"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "dev": "gatsby develop",
+    "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md' 'bin/*.js'",
+    "build": "gatsby build",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix *.js bin/*.js",
+    "postinstall": "node ./bin/hello.js",
+    "setup": "node ./bin/setup.js",
+    "heroku-postbuild": "gatsby build",
+    "cleanup-repository": "rimraf bin contentful && npm uninstall contentful-import chalk inquirer rimraf "
+  }
+}
