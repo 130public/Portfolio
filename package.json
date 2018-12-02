@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Jason Geiger",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/jasonjgeiger/portfolio/issues"
   },
   "dependencies": {
     "gatsby-image": "^1.0.55",
@@ -38,7 +38,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/jasonjgeiger/portfolio"
   },
   "scripts": {
     "dev": "gatsby develop",
