@@ -1,0 +1,104 @@
+@import '../styles/typography.scss';
+@import '../styles/base.scss';
+.root{
+  font-size:1rem;
+  line-height: 1rem;
+  @extend .font--pressura-mono;
+  @extend .font--weight-700;
+  @extend .type--style-uppercase;
+  .left{
+    color:white;
+    border:2px solid black;
+    background:black;
+  }
+  .right{
+    color:black;
+    border:2px solid black;
+    background:white;
+  }
+  &:hover{
+    .left{
+      color:white;
+      background:$blue;
+      border-color:$blue;
+    }
+    .right{
+      color:$blue;
+      background:white;
+      border-color:$blue;
+    }
+  }
+}
+.invert{
+  font-size:1rem;
+  line-height: 1rem;
+  @extend .font--pressura-mono;
+  @extend .font--weight-700;
+  @extend .type--style-uppercase;
+  .left{
+    color:black;
+    border:2px solid black;
+    background:white;
+  }
+  .right{
+    color:white;
+    border:2px solid black;
+    background:black;
+  }
+  &:hover{
+    .left{
+      color:$blue;
+      background:white;
+      border-color:$blue;
+    }
+    .right{
+      color:#FFF;
+      background:$blue;
+      border-color:$blue;
+    }
+  }
+}
+.invert-dark{
+  .left{
+    color:white;
+    border:2px solid white;
+    background:black;
+    
+  }
+  .right{
+    color:black;
+    border:2px solid white;
+    background:white;
+  }
+  &:hover{
+    .left{
+      color:$blue;
+      border-color:$blue;
+      background:black;
+      
+    }
+    .right{
+      color:black;
+      background:$blue;
+      border-color:$blue;
+    }
+  }
+}
+/*
+Attributes
+*/
+.link,.link:hover{
+  height:1.5rem;
+  display: block;
+  text-decoration: none;
+}
+.left{
+  margin-right:0.25rem;
+  padding:0 0.25rem;
+}
+.space{
+  font-size:0;
+}
+.right{
+  padding:0 0.25rem;
+}

@@ -1,0 +1,10 @@
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#f8f8f8;
+  overflow: hidden;
+}
+.textShadow{
+  text-shadow: 2px 2px #ff0000;
+}

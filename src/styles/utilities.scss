@@ -1,0 +1,26 @@
+.u-gutters{
+  padding-left:2rem;
+  padding-right:2rem;
+}
+.u-spacers{
+  &--inside{
+    padding-top:2rem;
+    padding-bottom:1.5rem;
+  }
+    &--opt-inside-top{
+      padding-top:0;
+    }
+    &--opt-inside-bottom{
+      padding-bottom:0;
+    }
+  &--outside{
+    margin-top:2rem;
+    margin-bottom:1.5rem;
+  }
+    &--opt-outside-top{
+      margin-top:0;
+    }
+    &--opt-insoutsideide-bottom{
+      margin-bottom:0;
+    }
+}

@@ -1,0 +1,19 @@
+@import '../styles/base.scss';
+.root{
+  @extend .u-gutters;
+  background:#fff;
+  padding-bottom:1rem;
+}
+.offset{
+  padding-left:14rem;
+  padding-right:14rem;
+  @media screen and (min-width:1200px){
+    padding-right:50vh
+  }
+}
+.alt{
+  background:black;
+}
+.padding-top-large{
+  padding-top:5rem;
+}

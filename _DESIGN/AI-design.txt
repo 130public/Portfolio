@@ -1,0 +1,28 @@
+Design can help close the gap between AI algorithm outputs and improved human outcomes by keeping human needs, behaviors and goals at the center as we build our machines.
+
+Goal-relevance.
+Insightfully designed to satisfy the needs of human end users.
+
+Handoff.
+Human-centered design is needed to ensure that this “handoff” from computer to human happens when it should, and that it goes smoothly. 
+
+Feedback loops.
+Automated algorithmic decisions can reflect and amplify undesirable patterns in the data they are trained on, because AI will do as it is trained. Introduce user input appropriately and often.
+
+Psychological impact.
+Algorithms designed without a focus on their users’ human nature can impair user behavior. It can create compulsive, ... behavior.
+
+Keeping Humans at the Center of AI Design
+“The technology is the easy part. The hard part is figuring out the social and institutional structures around the technology.”
+John Seely Brown
+
+
+-------
+
+
+Human-centric AI algorithms should reflect the information, goals, and constraints that the decision-maker tends to weigh when arriving at a decision.
+
+
+The overall decision environment—which includes both the algorithm and human decision-makers—must be similarly well-designed. An algorithm’s end users should have a sufficiently detailed understanding of their tool to use it effectively.
+
+Users can also be trained to “think slow,” more like statisticians. Psychologists Philip Tetlock and Barbara Mellors have found that training decision-makers in probabilistic reasoning and avoiding cognitive biases improves their forecasting abilities. Building accurate algorithms is not enough; user-centered design is also essential.

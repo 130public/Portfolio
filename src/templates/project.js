@@ -1,24 +1,23 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
-import Img from 'gatsby-image'
-import heroStyles from '../components/hero.module.css'
+import Container from '../templates/container'
+import Main from '../templates/main'
+import Article from './article'
+import styles from './project.module.scss'
 
 class ProjectTemplate extends React.Component {
   render() {
     const project = get(this.props, 'data.contentfulProject')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
-
     return (
-      <div style={{ background: '#fff' }}>
+      <Container>
+      <Main alt={false} offset={true}>
         <Helmet title={siteTitle} />
-        <div className={heroStyles.hero}>
-          {project.title}
-        </div>
-        <div className="wrapper">
+        <Article />
           <pre>{JSON.stringify(project,null, 2)}</pre>
-        </div>
-      </div>
+      </Main>
+    </Container>
     )
   }
 }

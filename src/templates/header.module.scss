@@ -1,0 +1,9 @@
+@import '../styles/base.scss';
+.root{
+  position: relative;
+  @extend .u-gutters;
+  @extend .u-spacers--inside;
+  background:white;
+  display:flex;
+  flex-flow:row wrap;
+}

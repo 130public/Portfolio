@@ -2,38 +2,38 @@ import React from 'react'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Container from '../templates/container'
-import Main from '../templates/main'
 import Grid from '../components/grid'
 import Hero from '../templates/hero'
 
-class ProjectsIndex extends React.Component {
+class ResourcesIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const projects = get(this, 'props.data.allContentfulProject.edges')
+    const resources = get(this, 'props.data.allContentfulResource.edges')
 
     return (
       <Container>
-        <Main alt={false} offset={true}>
+        <main className="main">
           <Helmet title={siteTitle} />
-          <Hero data={{"title":"Projects"}} />
+          <Hero data={{"title":"Resources"}} />
           <div className="wrapper">
-            <Grid nodes={projects} />
+            <Grid nodes={resources} />
           </div>
-        </Main>
+        </main>
       </Container>
     )
   }
 }
 
-export default ProjectsIndex
+export default ResourcesIndex
 
 export const pageQuery = graphql`
-  query ProjectsPageQuery {
-    allContentfulProject {
+  query ResourcesPageQuery {
+    allContentfulResource {
       edges {
         node {
           title
-          slug
+          description
+          source
         }
       }
     }
