@@ -12,7 +12,7 @@ class ProjectTemplate extends React.Component {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     return (
       <Container>
-      <Main alt={false} offset={true}>
+      <Main padTop='large' style="alt" offset={false}>
         <Helmet title={siteTitle} />
         <Article />
           <pre>{JSON.stringify(project,null, 2)}</pre>

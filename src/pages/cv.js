@@ -13,7 +13,7 @@ class Cv extends React.Component {
     const resources = get(this, 'props.data.allContentfulResource.edges')
     return (
       <Container>
-        <Main padTop='large' alt={true} offset={true}>
+        <Main padTop='large' style="fun" offset={true}>
           <Helmet title={siteTitle} />
           <Article />
         </Main>

@@ -7,10 +7,10 @@ let cx = classNames.bind(styles);
 export default class Main extends React.Component {
   render(){
     let classes = cx([
-      styles.root, 
+      styles.root,
       {
         [styles.offset]: this.props.offset,
-        [styles.alt]: this.props.alt,
+        [styles[this.props.style]]: this.props.style,
         [styles.paddingTopLarge]: this.props.padTop == 'large'
       }
     ]);
