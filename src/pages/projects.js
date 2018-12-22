@@ -3,8 +3,8 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Container from '../templates/container'
 import Main from '../templates/main'
-import Grid from '../components/grid'
 import Hero from '../templates/hero'
+import Projects from '../components/grid-projects'
 
 class ProjectsIndex extends React.Component {
   render() {
@@ -13,11 +13,11 @@ class ProjectsIndex extends React.Component {
 
     return (
       <Container>
-        <Main alt={false} offset={true}>
+        <Main padTop='large' style="alt" offset={false}>
           <Helmet title={siteTitle} />
           <Hero data={{"title":"Projects"}} />
           <div className="wrapper">
-            <Grid nodes={projects} />
+            <Projects />
           </div>
         </Main>
       </Container>

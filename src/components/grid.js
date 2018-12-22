@@ -1,4 +1,5 @@
 import React from 'react'
+import { StaticQuery, graphql } from "gatsby"
 import styles from './grid.module.scss'
 import ProjectCard from "../templates/project-card";
 

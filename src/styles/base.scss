@@ -1,6 +1,7 @@
 @import 'settings.scss';
 @import 'utilities.scss';
 @import 'typography.scss';
+@import 'images.scss';
 :root {}
 html {
   box-sizing: border-box;
@@ -20,7 +21,9 @@ img {
 .u--position-abs{
   position: absolute;
 }
-
+pre{
+  white-space: pre-wrap;
+}
 /**
  *
  */

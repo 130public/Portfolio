@@ -10,7 +10,8 @@ export default class Main extends React.Component {
       styles.root,
       {
         [styles.offset]: this.props.offset,
-        [styles[this.props.style]]: this.props.style,
+        [styles[this.props.style]]: (this.props.style) ? this.props.style :'',
+        [styles['height-'+this.props.height]]: this.props.height,
         [styles.paddingTopLarge]: this.props.padTop == 'large'
       }
     ]);

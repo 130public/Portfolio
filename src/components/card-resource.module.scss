@@ -1,0 +1,31 @@
+@import '../styles/base.scss';
+.card{
+  margin:0;
+  padding:2rem;
+  color:white;
+  background:black;
+  box-shadow:0 0 2px 0 rgba(0,0,0,0.2);
+  display:flex;
+  flex-direction: row;
+}
+.image{
+  display:inline-block;
+  margin:0;
+  padding:0;
+  background: black;
+  height:200px;
+  overflow: hidden;
+}
+.image img{ 
+  height:100%;
+  width:auto;
+  @extend .image--style-grayscale;
+}
+.caption{
+  display:inline-block;
+  margin:0;
+  padding-left:2rem;
+}
+a{
+  color:white;
+}

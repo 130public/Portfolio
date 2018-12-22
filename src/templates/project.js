@@ -12,10 +12,10 @@ class ProjectTemplate extends React.Component {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     return (
       <Container>
-      <Main padTop='large' style="alt" offset={false}>
+      <Main padTop='large' style="fun" offset={false}>
         <Helmet title={siteTitle} />
-        <Article />
-          <pre>{JSON.stringify(project,null, 2)}</pre>
+        {/* <Article /> */}
+        <pre>{JSON.stringify(project,null, 2)}</pre>
       </Main>
     </Container>
     )
@@ -28,6 +28,18 @@ export const pageQuery = graphql`
   query ProjectBySlug($slug: String!) {
     contentfulProject(slug: { eq: $slug }) {
       title
+      slug
+      description{
+        description
+      }
+      content{
+        internal{
+          content
+        }
+      }
+      body{
+        body
+      }
     }
   }
 `

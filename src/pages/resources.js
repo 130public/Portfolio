@@ -2,8 +2,9 @@ import React from 'react'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Container from '../templates/container'
-import Grid from '../components/grid'
+import Main from '../templates/main'
 import Hero from '../templates/hero'
+import Resources from '../components/grid-resources'
 
 class ResourcesIndex extends React.Component {
   render() {
@@ -12,13 +13,11 @@ class ResourcesIndex extends React.Component {
 
     return (
       <Container>
-        <main className="main">
+        <Main padTop='large' style="" offset={false}>
           <Helmet title={siteTitle} />
           <Hero data={{"title":"Resources"}} />
-          <div className="wrapper">
-            <Grid nodes={resources} />
-          </div>
-        </main>
+          <Resources />
+        </Main>
       </Container>
     )
   }
@@ -39,4 +38,3 @@ export const pageQuery = graphql`
     }
   }
 `
-

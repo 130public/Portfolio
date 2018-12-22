@@ -1,0 +1,24 @@
+@import '../styles/base.scss';
+.card{
+  margin:0;
+  padding:0;
+  color:white;
+  background:black;
+  box-shadow:0 0 2px 0 rgba(0,0,0,0.2);
+}
+.image{
+  margin:0;
+  padding:0;
+  border-bottom:4px solid $blue;
+  background: black;
+}
+.image img{ 
+  @extend .image--style-grayscale;
+}
+.caption{
+  margin:0;
+  padding:0 2rem 2rem;
+}
+a{
+  color:white;
+}
