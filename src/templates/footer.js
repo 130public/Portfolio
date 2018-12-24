@@ -9,6 +9,6 @@ let brand = cx(['brand-left','brand-right','invert-dark']);
 
 export default () => (
   <footer className={styles.root}>
-    <Brand className={brand} left="The" right="End"/>
+    <Brand className={brand} to="/the-end" left="The" right="End"/>
   </footer>
 )

@@ -36,3 +36,35 @@ pre{
   .list-inline li {
     display: inline-block;
   }
+/**
+ *
+ */
+ table{
+  border-collapse: collapse;
+  thead{
+    tr{
+      
+      height:3rem;
+    }
+    th{
+      text-align: left;
+    }
+  }
+  tbody{
+    tr{}
+    td{
+      padding:1rem 3rem 2px 0;
+      box-shadow:inset 0 -0.0625rem 0 white;
+      a{
+        text-decoration: none;
+        padding-bottom:5px;
+        box-shadow:inset 0 -0.0625rem 0 $blue;
+        transition: box-shadow 0.25s, padding 0.25s;
+        &:hover{
+          padding-bottom:5px;
+          box-shadow:inset 0 -0.25rem 0 $blue;
+        }
+      }
+    }
+  }
+ }

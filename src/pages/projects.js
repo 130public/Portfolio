@@ -1,5 +1,5 @@
 import React from 'react'
-import get from 'lodash/get'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Container from '../templates/container'
 import Main from '../templates/main'
@@ -8,14 +8,18 @@ import Projects from '../components/grid-projects'
 
 class ProjectsIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const projects = get(this, 'props.data.allContentfulProject.edges')
+    const{data,location} = this.props;
 
     return (
       <Container>
-        <Main padTop='large' style="alt" offset={false}>
-          <Helmet title={siteTitle} />
-          <Hero data={{"title":"Projects"}} />
+        <Helmet>
+            <title>{data.contentfulPage.metaTitle} {data.site.siteMetadata.title}</title>
+            <base target="_blank" href={location.href} />
+            <meta name="description" content={data.contentfulPage.metaDescription} />
+            <meta property="og:type" content="article" />
+          </Helmet>
+        <Hero title={data.contentfulPage.title} className="margin" />
+        <Main padTop='large' height='full' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
           <div className="wrapper">
             <Projects />
           </div>
@@ -27,16 +31,19 @@ class ProjectsIndex extends React.Component {
 
 export default ProjectsIndex
 
-export const pageQuery = graphql`
-  query ProjectsPageQuery {
-    allContentfulProject {
-      edges {
-        node {
-          title
-          slug
-        }
+export const projectsPageQuery = graphql`
+  query projectsPageQuery {
+    site {
+      siteMetadata {
+        title
       }
+    }
+    contentfulPage(slug: { eq: "projects" }) {
+      title,
+      slug,
+      metaTitle,
+      metaDescription,
+      updatedAt(formatString: "Y-MM-D")
     }
   }
 `
-

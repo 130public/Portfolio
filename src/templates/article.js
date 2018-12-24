@@ -6,11 +6,9 @@ import Img from 'gatsby-image'
 
 class ArticleTemplate extends React.Component {
   render() {
-    const project = get(this.props, 'data.contentfulProject')
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     return (
       <article className="article">
-        <h2 className="type--subtitle1">Sed congue, lectus</h2>
+        <h2 className="type--subtitle1">{this.props.title}</h2>
         <p className="type--body1">Sed congue, lectus at ullamcorper euismod, felis est sagittis justo, id mattis nulla mi non elit. Suspendisse dolor tortor, iaculis vel varius eu, tempus ut urna. Sed bibendum hendrerit placerat. Cras scelerisque interdum urna, ac posuere risus tincidunt eu. Vestibulum tincidunt mauris eu pulvinar ornare. Etiam pretium felis sapien, nec viverra justo mollis id. In pharetra tempus felis, eu aliquet sapien. Curabitur ac dignissim mi. Mauris sodales nec diam at feugiat. Praesent non nulla enim. Curabitur at mattis eros, nec tincidunt metus. Phasellus vel leo consequat, sollicitudin ipsum sed, suscipit quam. Pellentesque consequat nunc et sem ultrices, eget posuere dui tincidunt.</p>
         <p className="type--body1">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus nisl iaculis nisl viverra vulputate. Nunc eleifend tempus felis. Sed et varius ex. In sodales sagittis lobortis. Morbi et elit in metus eleifend viverra et eget elit. Quisque et fermentum nisi, et accumsan velit. Proin nec lacus a diam tincidunt ullamcorper quis sed risus. Vestibulum volutpat, mauris sit amet fringilla tincidunt, lorem nisl sodales tortor, ac blandit ante lectus at augue.

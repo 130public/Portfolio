@@ -1,0 +1,29 @@
+@import '../styles/base.scss';
+.root{
+    @extend .u-gutters-lg;
+    @extend .u-spacers--inside-lg;
+    color:white;
+    background:black;
+    padding-left:14rem;
+}
+.centered{
+    padding-left:0;
+    padding-right:0;
+    text-align: center;
+}
+.fun{
+    background-image: linear-gradient(to bottom right,#143FCC,#3FA9F5);
+}
+.headline,.body{
+    max-width:920px;
+}
+.headline{
+    @extend .type--headline3;
+    @extend .type--style-uppercase;
+}
+.body{
+    @extend .type--headline6;
+}
+.margin{
+    margin-bottom: 4rem;
+}

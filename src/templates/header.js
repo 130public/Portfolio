@@ -11,7 +11,7 @@ let navStyle = cx([styles.navigation]);
 
 export default () => (
   <header className={styles.root}>
-    <Brand className={brandStyle} left="OneThirty" right="Public"/>
+    <Brand className={brandStyle} to="/" left="OneThirty" right="Public"/>
     <Navigation className={navStyle} />
   </header>
 )

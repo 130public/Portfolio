@@ -10,9 +10,10 @@ export default class Brand extends React.Component {
     let className = cx([
       styles.root, this.props.className
     ]);
+    const {to} = this.props;
     return (
       <div className={className}>
-        <Link className={styles.link} to="/">
+        <Link className={styles.link} to={to}>
           <span className={styles.left}>{this.props.left}</span>
           <span className={styles.space}>&nbsp;</span>
           <span className={styles.right}>{this.props.right}</span>

@@ -3,10 +3,13 @@
   padding: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 100%));
-  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(8vh, 16vh));
+  grid-gap: 1rem;
 }
 .gridItem{
   margin:0;
   padding:0;
+}
+.white .card{
+  background:white;
 }

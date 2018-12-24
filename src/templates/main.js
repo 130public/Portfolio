@@ -18,6 +18,7 @@ export default class Main extends React.Component {
     return (
       <main className={classes}>
         {this.props.children}
+        <pre>Last Updated: {this.props.updatedAt}</pre>
       </main>
     );
   }

@@ -9,14 +9,15 @@ class ResourceCard extends React.Component {
       return (
         
         <figure className={styles.card}>
+          <a href={post.source} target="_blank">
           <div className={styles.image}>
               <img src={post.thumbnail.file.url}/>
           </div>
           <figcaption className={styles.caption}>
-            <h3>{post.title}</h3>
-            <p>{post.description}</p>
-            <a href={post.source} target="_blank">Learn More</a>
+            <h3 className={styles.heading}>{post.title}</h3>
+            {/* <p>{post.description}</p> */}
           </figcaption>
+          </a>
         </figure>
       );
   }

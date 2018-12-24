@@ -1,12 +1,18 @@
 @import '../styles/base.scss';
 .card{
   margin:0;
-  padding:2rem;
-  color:white;
-  background:black;
-  box-shadow:0 0 2px 0 rgba(0,0,0,0.2);
+  padding:2rem 0 0;
+  color:black;
+  border-top:1px solid $blue;
   display:flex;
   flex-direction: row;
+  flex-wrap: wrap;
+}
+.alt{
+  background: white;
+}
+.image,img{
+  transition: all .1s;
 }
 .image{
   display:inline-block;
@@ -20,12 +26,22 @@
   height:100%;
   width:auto;
   @extend .image--style-grayscale;
+  border:1px solid #f4f4f4;
 }
 .caption{
   display:inline-block;
   margin:0;
-  padding-left:2rem;
+}
+.heading{
+  @extend .type--subtitle2;
 }
 a{
-  color:white;
+  color:$blue;
+  >*{color:black;}
+  &:hover{
+    .image{
+      background:black;
+      img{opacity:0.7}
+    }
+  }
 }

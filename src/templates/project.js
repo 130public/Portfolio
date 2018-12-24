@@ -1,21 +1,25 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import get from 'lodash/get'
 import Container from '../templates/container'
 import Main from '../templates/main'
-import Article from './article'
-import styles from './project.module.scss'
+import Hero from '../templates/hero'
 
 class ProjectTemplate extends React.Component {
   render() {
-    const project = get(this.props, 'data.contentfulProject')
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    
+    const{data,location} = this.props;
+
     return (
       <Container>
-      <Main padTop='large' style="fun" offset={false}>
-        <Helmet title={siteTitle} />
-        {/* <Article /> */}
-        <pre>{JSON.stringify(project,null, 2)}</pre>
+        <Helmet>
+          <title>{data.contentfulProject.title} {data.site.siteMetadata.title}</title>
+          <base target="_blank" href={location.href} />
+          {/* <meta name="description" content={data.contentfulPage.metaDescription} />
+          <meta property="og:type" content="article" /> */}
+        </Helmet>
+        <Hero title={data.contentfulProject.title} className="none" />
+        <Main padTop='large' style="alt" offset={true} updatedAt={data.contentfulProject.updatedAt}>
+          <pre>{JSON.stringify(this.props,null, 2)}</pre>
       </Main>
     </Container>
     )
@@ -24,11 +28,15 @@ class ProjectTemplate extends React.Component {
 
 export default ProjectTemplate
 
-export const pageQuery = graphql`
+export const projectPageQuery = graphql`
   query ProjectBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     contentfulProject(slug: { eq: $slug }) {
       title
-      slug
       description{
         description
       }
@@ -40,6 +48,7 @@ export const pageQuery = graphql`
       body{
         body
       }
+      updatedAt(formatString: "Y-MM-D")
     }
   }
 `

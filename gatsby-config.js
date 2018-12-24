@@ -23,6 +23,9 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   pathPrefix: '/gatsby-contentful-starter',
+  siteMetadata: {
+    title: `the portfolio of Jason J Geiger`,
+  },
   plugins: [
     'gatsby-transformer-remark',
     'gatsby-plugin-react-helmet',
@@ -35,6 +38,13 @@ module.exports = {
           camelCase: true,
           localIdentName: '[name]--[local]'
         },
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/`,
       },
     },
     {

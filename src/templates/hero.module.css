@@ -1,9 +1,0 @@
-.hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-.textShadow{
-  text-shadow: 2px 2px #ff0000;
-}

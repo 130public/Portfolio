@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Container from '../templates/container'
@@ -8,14 +9,18 @@ import Resources from '../components/grid-resources'
 
 class ResourcesIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const resources = get(this, 'props.data.allContentfulResource.edges')
+    const{data,location} = this.props;
 
     return (
       <Container>
-        <Main padTop='large' style="" offset={false}>
-          <Helmet title={siteTitle} />
-          <Hero data={{"title":"Resources"}} />
+        <Helmet>
+          <title>{data.contentfulPage.metaTitle} {data.site.siteMetadata.title}</title>
+          <base target="_blank" href={location.href} />
+          <meta name="description" content={data.contentfulPage.metaDescription} />
+          <meta property="og:type" content="article" />
+        </Helmet>
+        <Hero title={data.contentfulPage.title} className="margin" />
+        <Main padTop='large' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
           <Resources />
         </Main>
       </Container>
@@ -25,16 +30,19 @@ class ResourcesIndex extends React.Component {
 
 export default ResourcesIndex
 
-export const pageQuery = graphql`
-  query ResourcesPageQuery {
-    allContentfulResource {
-      edges {
-        node {
-          title
-          description
-          source
-        }
+export const resourcesPageQuery = graphql`
+  query resourcesPageQuery {
+    site {
+      siteMetadata {
+        title
       }
+    }
+    contentfulPage(slug: { eq: "resources" }) {
+      title,
+      slug,
+      metaTitle,
+      metaDescription,
+      updatedAt(formatString: "Y-MM-D")
     }
   }
 `
