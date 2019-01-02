@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Container from '../templates/container'
 import Main from '../templates/main'
+import styles from './the-end.module.scss'
 
 class Files extends React.Component {
     render() {
@@ -19,26 +20,28 @@ class Files extends React.Component {
                     </Helmet>
                     <h1>Colophon</h1>
                     <p>Below you will find the files used to create this portfolio, they are all sources from a GitHub repo and all files are mapped to their respective <a href="">GitHub</a> URL. This site is statically generator and levearges <a href="">Gatsby</a>, <a href="">Contentful</a>, and <a href="">Netlify</a>.</p>
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>path/file</th>
-                            <th>size</th>
-                            <th>type</th>
-                            <th>updated</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {data.allFile.edges.map(({ node }, index) => (
-                            <tr key={index}>
-                            <td><a target="_blank" href={"https://github.com/jasonjgeiger/portfolio/tree/master/src/"+node.relativePath}>{node.relativePath}</a></td>
-                            <td>{node.prettySize}</td>
-                            <td>{node.extension}</td>
-                            <td>{node.birthTime}</td>
+                    <div className={styles.table}>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>path/file</th>
+                                <th>size</th>
+                                <th>type</th>
+                                <th>updated</th>
                             </tr>
-                        ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            {data.allFile.edges.map(({ node }, index) => (
+                                <tr key={index}>
+                                <td><a target="_blank" href={"https://github.com/jasonjgeiger/portfolio/tree/master/src/"+node.relativePath}>{node.relativePath}</a></td>
+                                <td>{node.prettySize}</td>
+                                <td>{node.extension}</td>
+                                <td>{node.birthTime}</td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </Main>
             </Container>
         )

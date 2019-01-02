@@ -13,6 +13,7 @@ class Cv extends React.Component {
 
     return (
       <Container>
+        <Hero title={data.contentfulPage.title} className="centered" />
         <Main padTop='large' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
           <Helmet>
             <title>{data.contentfulPage.metaTitle} {data.site.siteMetadata.title}</title>
@@ -20,7 +21,6 @@ class Cv extends React.Component {
             <meta name="description" content={data.contentfulPage.metaDescription} />
             <meta property="og:type" content="article" />
           </Helmet>
-          <Hero title={data.contentfulPage.title} className="centered" />
           <Article title="Jason J. Geiger" content={"content"} />
         </Main>
         </Container>

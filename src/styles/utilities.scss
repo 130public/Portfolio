@@ -1,6 +1,10 @@
 .u-gutters{
   padding-left:2rem;
   padding-right:2rem;
+  @media screen and (max-width:400px){
+    padding-left:2rem;
+    padding-right:2rem;
+  }
   &-sm{
     padding-left:1rem;
     padding-right:1rem;
@@ -12,15 +16,23 @@
   &-lg{
     padding-left:6rem;
     padding-right:6rem;
+    @media screen and (max-width:400px){
+      padding-left:2rem;
+      padding-right:2rem;
+    }
   }
 }
 .u-spacers{
   &--inside{
     padding-top:2rem;
     padding-bottom:1.5rem;
+    @media screen and (max-width:400px){
+      padding-top:1rem;
+      padding-bottom:0.5rem;
+    }
     &-sm{
       padding-top:1rem;
-      padding-bottom:2rem;
+      padding-bottom:0.5rem;
     }
     &-md{
       padding-top:4rem;
@@ -29,6 +41,10 @@
     &-lg{
       padding-top:6rem;
       padding-bottom:5.5rem;
+      @media screen and (max-width:400px){
+        padding-top:2rem;
+        padding-bottom:1.65rem;
+      }
     }
   }
     &--opt-inside-top{
