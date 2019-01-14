@@ -6,12 +6,19 @@ import Main from '../templates/main'
 import styles from './the-end.module.scss'
 
 class Files extends React.Component {
+
+    componentDidUpdate(prevProps) {
+        console.log(prevProps);
+
+    }
+
     render() {
         const{data,location} = this.props;
+    
 
         return (
             <Container>
-                <Main padTop='large' height='full' style="fun" offset={true} >
+                <Main padTop='large' height='full' style="fun" offset={true} updatedAt={data.contentfulPage.updatedAt}>
                     <Helmet>
                         <title>Colophon of {data.site.siteMetadata.title}</title>
                         <base target="_blank" href={location.href} />
@@ -26,8 +33,6 @@ class Files extends React.Component {
                             <tr>
                                 <th>path/file</th>
                                 <th>size</th>
-                                <th>type</th>
-                                <th>updated</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -35,9 +40,10 @@ class Files extends React.Component {
                                 <tr key={index}>
                                 <td><a target="_blank" href={"https://github.com/jasonjgeiger/portfolio/tree/master/src/"+node.relativePath}>{node.relativePath}</a></td>
                                 <td>{node.prettySize}</td>
-                                <td>{node.extension}</td>
-                                <td>{node.birthTime}</td>
+                                {/* <td>{node.extension}</td> */}
+                                {/* <pre>{JSON.stringify(node,null,2)}</pre> */}
                                 </tr>
+                                
                             ))}
                             </tbody>
                         </table>
@@ -56,6 +62,13 @@ export const filesPageQuery = graphql`
         siteMetadata {
             title
         }
+    }
+    contentfulPage(slug: { eq: "colophon" }) {
+        title,
+        slug,
+        metaTitle,
+        metaDescription,
+        updatedAt(formatString: "Y-MM-D")
     }
     allFile {
       edges {

@@ -7,7 +7,7 @@ import Main from '../templates/main'
 import Hero from '../templates/hero'
 import Article from '../templates/article'
 
-class Cv extends React.Component {
+class Resume extends React.Component {
   render() {
     const{data,location} = this.props;
 
@@ -28,7 +28,7 @@ class Cv extends React.Component {
   }
 }
 
-export default Cv
+export default Resume
 
 export const cvPageQuery = graphql`
   query cvPageQuery {
@@ -37,7 +37,7 @@ export const cvPageQuery = graphql`
         title
       }
     }
-    contentfulPage(slug: { eq: "cv" }) {
+    contentfulPage(slug: { eq: "resume" }) {
       title,
       slug,
       metaTitle,

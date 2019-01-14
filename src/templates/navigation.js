@@ -21,10 +21,10 @@ export default class Navigation extends React.Component {
               <Link className={styles.link} to="/resources/">Resources</Link>
             </li>
             <li className={styles.item}>
-              <Link className={styles.link} to="/cv/">CV</Link>
+              <Link className={styles.link} to="/resume/">Resume</Link>
             </li>
             <li className={styles.item}>
-              <a href className={styles.link} target="_blank" href="mailto:hello@130public.net">EMAIL</a>
+              <a href className={styles.link} target="_blank" href="https://www.linkedin.com/in/jasonjgeiger/">Profile</a>
             </li>
             <li className={styles.item}>
               <a href className={styles.link} target="_blank" href="https://github.com/jasonjgeiger/portfolio">REPO</a>

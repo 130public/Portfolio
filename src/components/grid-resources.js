@@ -29,6 +29,7 @@ export default () => (
         }
     `}
       render={data => (
+        
         <ul className={styles.grid}>
             {data.allContentfulResource.edges.map(({ node }) => {
               return (

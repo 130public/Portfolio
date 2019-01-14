@@ -9,7 +9,8 @@ export default class Link extends React.Component {
   render(){
     let className = cx({
       [linkStyles.link]: !this.props.className,
-      [this.props.className]: this.props.className
+      [this.props.className]: this.props.className,
+      [linkStyles.button]: this.props.type == 'button'
     });
     return <GatsbyLink className={className} to={this.props.to}>{this.props.children}</GatsbyLink>;
   }
