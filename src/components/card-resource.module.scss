@@ -7,6 +7,13 @@
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
+  &:hover{
+    .image {
+      img{
+        @extend .image--style-normal;
+      }
+    }
+  }
 }
 .alt{
   background: white;
@@ -18,7 +25,7 @@
   display:inline-block;
   margin:0;
   padding:0;
-  background: black;
+  background: black; 
   height:200px;
   overflow: hidden;
 }
@@ -38,10 +45,4 @@
 a{
   color:$blue;
   >*{color:black;}
-  &:hover{
-    .image{
-      background:black;
-      img{opacity:0.7}
-    }
-  }
 }

@@ -7,7 +7,11 @@ let cx = classNames.bind(styles);
 class Hero extends React.Component {
   render(){
     let classes = cx([
-      styles.root, styles.fun, this.props.className
+      styles.root, 
+      this.props.className,
+      {
+        [styles[this.props.style]]: (this.props.style) ? this.props.style :'default',
+      }
     ]);
     return (
       <div className={classes}>

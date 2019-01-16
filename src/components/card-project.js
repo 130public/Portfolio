@@ -9,7 +9,7 @@ class ProjectCard extends React.Component {
       return (
         <figure className={styles.card}>
           <div className={styles.image}>
-              <img src="http://130public.net/assets/img/work/retxt/retxt-feature.jpg"/>
+              <img src="http://placehold.it/1920x1100/6219ee/ffffff"/>
           </div>
           <figcaption className={styles.caption}>
             <h3 className="type--subtitle1">{post.title}</h3>

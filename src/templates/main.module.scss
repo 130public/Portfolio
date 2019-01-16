@@ -4,18 +4,11 @@
   color:#000;
   background:#fff;
   padding-bottom:2rem;
-  
+  @extend .u-width--max;
 }
 .offset{
-  padding-left:14rem;
-  padding-right:14rem;
-  @media screen and (min-width:1360px){
-    padding-right:50vh
-  }
-  @media screen and (max-width:400px){
-    padding-left:2rem;
-    padding-right:2rem;
-  }
+  @extend .u-gutters-lg;
+  @extend .u-spacers--inside-lg;
 }
 .alt{
   background:black;

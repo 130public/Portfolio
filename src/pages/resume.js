@@ -13,7 +13,7 @@ class Resume extends React.Component {
 
     return (
       <Container>
-        <Hero title={data.contentfulPage.title} className="centered" />
+        <Hero title={data.contentfulPage.title} style="default" />
         <Main padTop='large' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
           <Helmet>
             <title>{data.contentfulPage.metaTitle} {data.site.siteMetadata.title}</title>

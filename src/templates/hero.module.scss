@@ -2,19 +2,26 @@
 .root{
     @extend .u-gutters-lg;
     @extend .u-spacers--inside-lg;
-    color:white;
-    background:black;
+    @extend .default;
 }
 .centered{
     padding-left:0;
     padding-right:0;
     text-align: center;
+    .headline,.body{
+        margin:0 auto;
+    }
+}
+.default{
+    color:white;
+    background:black;
 }
 .fun{
+    color:white;
     background-image: linear-gradient(to bottom right,#143FCC,#3FA9F5);
 }
 .headline,.body{
-    max-width:920px;
+    @extend .u-width--max;
 }
 .headline{
     @extend .type--headline3;

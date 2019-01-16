@@ -10,16 +10,21 @@
     padding-right:1rem;
   }
   &-md{
-    padding-left:4rem;
+    padding-left:8rem;
     padding-right:4rem;
   }
   &-lg{
-    padding-left:6rem;
+    padding-left:8rem;
     padding-right:6rem;
     @media screen and (max-width:400px){
       padding-left:2rem;
       padding-right:2rem;
     }
+  }
+}
+.u-width{
+  &--max{
+    max-width:920px;
   }
 }
 .u-spacers{

@@ -25,16 +25,16 @@ class Index extends React.Component {
     return (
       <Container>
         <Helmet>
-            <title>{data.contentfulPage.metaTitle} {data.site.siteMetadata.title}</title>
-            <base target="_blank" href={location.href} />
-            <meta name="description" content={data.contentfulPage.metaDescription} />
-            <meta property="og:type" content="article" />
-          </Helmet>
-          <Hero title={data.contentfulPage.title} body={data.contentfulPage.content.body}>
-            <p><span><strong>Obligatory Hashtags:</strong></span><br/>
-            #design #development #designthinking #prototyping #accessibility</p>
-            
-          </Hero>
+          <title>{data.contentfulPage.metaTitle} {data.site.siteMetadata.title}</title>
+          <base target="_blank" href={location.href} />
+          <meta name="description" content={data.contentfulPage.metaDescription} />
+          <meta property="og:type" content="article" />
+        </Helmet>
+        <Hero style="fun" title={data.contentfulPage.title} body={data.contentfulPage.content.body}>
+          <p><span><strong>Obligatory Hashtags:</strong></span><br/>
+          #design #development #designthinking #prototyping #accessibility</p>
+          
+        </Hero>
         <Main padTop='none' height='auto' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
           <h2>Recently read or found</h2>
           <ul className={ResourceCardStyles.grid}>

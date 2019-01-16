@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Container from '../templates/container'
+import Hero from '../templates/hero'
 import Main from '../templates/main'
 import styles from './the-end.module.scss'
 
@@ -18,6 +19,9 @@ class Files extends React.Component {
 
         return (
             <Container>
+                <Hero title={data.contentfulPage.title} title={data.contentfulPage.title} body={data.contentfulPage.content.body} className="centered fun" >
+                    <p>More?</p>
+                </Hero>
                 <Main padTop='large' height='full' style="fun" offset={true} updatedAt={data.contentfulPage.updatedAt}>
                     <Helmet>
                         <title>Colophon of {data.site.siteMetadata.title}</title>
@@ -25,8 +29,8 @@ class Files extends React.Component {
                         {/* <meta name="description" content={data.contentfulPage.metaDescription} />
                         <meta property="og:type" content="article" /> */}
                     </Helmet>
-                    <h1>Colophon</h1>
-                    <p>Below you will find the files used to create this portfolio, they are all sources from a GitHub repo and all files are mapped to their respective <a href="">GitHub</a> URL. This site is statically generator and levearges <a href="">Gatsby</a>, <a href="">Contentful</a>, and <a href="">Netlify</a>.</p>
+                    className="centered"
+                    
                     <div className={styles.table}>
                         <table>
                             <thead>
@@ -68,6 +72,9 @@ export const filesPageQuery = graphql`
         slug,
         metaTitle,
         metaDescription,
+        content {
+            body
+        },
         updatedAt(formatString: "Y-MM-D")
     }
     allFile {
