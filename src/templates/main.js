@@ -6,7 +6,7 @@ let cx = classNames.bind(styles);
 
 export default class Main extends React.Component {
   render(){
-    let classes = cx([
+    let mainClasses = cx([
       styles.root,
       {
         [styles.offset]: this.props.offset,
@@ -15,10 +15,15 @@ export default class Main extends React.Component {
         [styles.paddingTopLarge]: this.props.padTop == 'large'
       }
     ]);
+    let innerClasses = cx([
+      styles.maxWidth
+    ]);
     return (
-      <main className={classes}>
-        {this.props.children}
-        <pre>Last Updated: {this.props.updatedAt}</pre>
+      <main className={mainClasses}>
+        <div className={innerClasses}>
+          {this.props.children}
+          <pre>Last Updated: {this.props.updatedAt}</pre>
+        </div>
       </main>
     );
   }

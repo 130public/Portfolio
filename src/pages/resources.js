@@ -19,7 +19,7 @@ class ResourcesIndex extends React.Component {
           <meta name="description" content={data.contentfulPage.metaDescription} />
           <meta property="og:type" content="article" />
         </Helmet>
-        <Hero title={data.contentfulPage.title} className="margin" />
+        <Hero title={data.contentfulPage.title} body="" className="margin" />
         <Main padTop='large' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
           <Resources />
         </Main>

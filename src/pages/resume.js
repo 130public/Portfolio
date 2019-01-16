@@ -13,14 +13,14 @@ class Resume extends React.Component {
 
     return (
       <Container>
-        <Hero title={data.contentfulPage.title} style="default" />
+        <Helmet>
+          <title>{data.contentfulPage.metaTitle} {data.site.siteMetadata.title}</title>
+          <base target="_blank" href={location.href} />
+          <meta name="description" content={data.contentfulPage.metaDescription} />
+          <meta property="og:type" content="article" />
+        </Helmet>
+        <Hero title={data.contentfulPage.title} body="" style="default" />
         <Main padTop='large' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
-          <Helmet>
-            <title>{data.contentfulPage.metaTitle} {data.site.siteMetadata.title}</title>
-            <base target="_blank" href={location.href} />
-            <meta name="description" content={data.contentfulPage.metaDescription} />
-            <meta property="og:type" content="article" />
-          </Helmet>
           <Article title="Jason J. Geiger" content={"content"} />
         </Main>
         </Container>

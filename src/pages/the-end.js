@@ -8,29 +8,20 @@ import styles from './the-end.module.scss'
 
 class Files extends React.Component {
 
-    componentDidUpdate(prevProps) {
-        console.log(prevProps);
-
-    }
-
     render() {
         const{data,location} = this.props;
     
 
         return (
             <Container>
-                <Hero title={data.contentfulPage.title} title={data.contentfulPage.title} body={data.contentfulPage.content.body} className="centered fun" >
-                    <p>More?</p>
-                </Hero>
+                <Helmet>
+                    <title>Colophon of {data.site.siteMetadata.title}</title>
+                    <base target="_blank" href={location.href} />
+                    {/* <meta name="description" content={data.contentfulPage.metaDescription} />
+                    <meta property="og:type" content="article" /> */}
+                </Helmet>
+                <Hero title={data.contentfulPage.title} title={data.contentfulPage.title} body={data.contentfulPage.content.body} className="centered fun" />
                 <Main padTop='large' height='full' style="fun" offset={true} updatedAt={data.contentfulPage.updatedAt}>
-                    <Helmet>
-                        <title>Colophon of {data.site.siteMetadata.title}</title>
-                        <base target="_blank" href={location.href} />
-                        {/* <meta name="description" content={data.contentfulPage.metaDescription} />
-                        <meta property="og:type" content="article" /> */}
-                    </Helmet>
-                    className="centered"
-                    
                     <div className={styles.table}>
                         <table>
                             <thead>

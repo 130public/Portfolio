@@ -13,12 +13,12 @@ class ProjectsIndex extends React.Component {
     return (
       <Container>
         <Helmet>
-            <title>{data.contentfulPage.metaTitle} {data.site.siteMetadata.title}</title>
-            <base target="_blank" href={location.href} />
-            <meta name="description" content={data.contentfulPage.metaDescription} />
-            <meta property="og:type" content="article" />
-          </Helmet>
-        <Hero title={data.contentfulPage.title} className="margin" />
+          <title>{data.contentfulPage.metaTitle} {data.site.siteMetadata.title}</title>
+          <base target="_blank" href={location.href} />
+          <meta name="description" content={data.contentfulPage.metaDescription} />
+          <meta property="og:type" content="article" />
+        </Helmet>
+        <Hero title={data.contentfulPage.title} body="" className="margin" />
         <Main padTop='large' height='full' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
           <div className="wrapper">
             <Projects />
