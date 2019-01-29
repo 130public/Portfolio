@@ -1,5 +1,6 @@
 @import '../styles/base.scss';
 .root{
+    position:relative;
     @extend .u-gutters-lg;
     @extend .u-spacers--inside-lg;
     @extend .default;
