@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Container from '../templates/container'
 import Main from '../templates/main'
@@ -40,11 +41,7 @@ export const projectPageQuery = graphql`
       description{
         description
       }
-      content{
-        internal{
-          content
-        }
-      }
+      tags
       body{
         body
       }
