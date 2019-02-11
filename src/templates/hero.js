@@ -1,12 +1,7 @@
 import React from 'react'
 import classNames from 'classnames/bind'
-import Search from '../components/search';
 import styles from './hero.module.scss'
 import Animation from '../components/hero-animation';
-
-const searchIndices = [
-  { name: `Pages`, title: `Pages`, hitComp: `PageHit` }
-]
 
 
 let cx = classNames.bind(styles);
@@ -22,7 +17,6 @@ class Hero extends React.Component {
     ]);
     return (
       <div className={classes}>
-        <Search collapse indices={searchIndices} />
         {/* <Animation /> */}
         {/* <h1 className={styles.headline}>{this.props.title}</h1>
         <p className={styles.body}>
