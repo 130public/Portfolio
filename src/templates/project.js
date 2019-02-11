@@ -40,11 +40,6 @@ export const projectPageQuery = graphql`
       description{
         description
       }
-      content{
-        internal{
-          content
-        }
-      }
       body{
         body
       }

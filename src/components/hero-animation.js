@@ -1,27 +1,46 @@
 import React from "react"
-import Anime from "react-anime"
+import posed from 'react-pose';
 import styles from './hero-animation.module.scss'
 
+const Box = posed.div({
+  hidden: { 
+    scaleX: 0.75,
+    scaleY: 0.75
+  },
+  visible: { 
+    scaleX: 1,
+    scaleY: 1,
+    rotation: 240,
+    transition: ({ from, to }) => ({
+      type: 'keyframes',
+      values: [from, 5, 10],
+      times: [0, 0.25, 5]
+    })
+  }
+})
+
 class HeroAnimation extends React.Component {
+  state = { isVisible: true };
 
   constructor(props) {
     super(props);
     this.targets = [];
   }
 
+  
+  componentDidMount() {
+    setInterval(() => {
+      this.setState({ isVisible: !this.state.isVisible });
+    }, 1000);
+  }
+
 
   render() {
-
+    const { isVisible } = this.state;
     return (
       <div className={styles.animation}>
-        <Anime easing="easeOutElastic"
-          duration={1000}
-          direction="normal"
-          loop={true}
-          delay={(el, index) => index * 1240}
-          translateX={(el, index) => index * 200}
-          translateY={(el, index) => index * 200}
-          scale={[1.5, 3.0]} >
+          <Box  className={styles.poseDemo} pose={ isVisible ? 'visible' : 'hidden' } />
+          <hr/>
           <svg className={styles.large} viewBox="0 0 96 96">
             <defs>
               <linearGradient id="circleGradient" x1="0%" x2="100%" y1="20%" y2="80%">
@@ -70,7 +89,7 @@ class HeroAnimation extends React.Component {
           <svg className={styles.xsmall} viewBox="0 0 96 96">
             <circle cx="48" cy="48" r="32" fill-rule="evenodd" stroke-linecap="square"/>
           </svg>
-        </Anime>
+        
       </div>
     );
     }

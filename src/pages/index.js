@@ -69,8 +69,10 @@ export const indexPageQuery = graphql`
       metaDescription,
       updatedAt(formatString: "Y-MM-D")
       content{
-        body
         hashtags
+      }
+      body{
+        body
       }
     }
     allContentfulResource {

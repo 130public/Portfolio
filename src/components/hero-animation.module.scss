@@ -4,6 +4,8 @@
   bottom:0;
   left:0;
   right:0;
+  min-height: 100vh;
+  min-width: 100vw;
   display: block;
   align-items: center;
   justify-content: center;
@@ -21,15 +23,19 @@
   
 }
 .shape {
-  position: absolute;
-  top: 50%;
+  
   overflow: visible;
   width: 280px;
   height: 280px;
-  margin-top: -140px;
+  
   stroke: transparent;
   stroke-width: 1px;
   fill: url(#shapesGradient);
+}
+
+.poseDemo{
+  @extend .shape;
+  background:purple;
 }
 
 @media (min-width: 740px) {
