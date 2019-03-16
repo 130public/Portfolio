@@ -5,6 +5,11 @@ import Container from '../templates/container'
 import Hero from '../templates/hero'
 import Main from '../templates/main'
 import styles from './the-end.module.scss'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+library.add(fas);
 
 class Files extends React.Component {
 
@@ -13,14 +18,14 @@ class Files extends React.Component {
     
 
         return (
-            <Container>
+            <Container className="fun">
                 <Helmet>
                     <title>Colophon of {data.site.siteMetadata.title}</title>
                     <base target="_blank" href={location.href} />
                     {/* <meta name="description" content={data.contentfulPage.metaDescription} />
                     <meta property="og:type" content="article" /> */}
                 </Helmet>
-                <Hero title={data.contentfulPage.title} title={data.contentfulPage.title} body={data.contentfulPage.content.body} className="centered fun" />
+                <Hero title={data.contentfulPage.title} title={data.contentfulPage.title} body={data.contentfulPage.content.body} style="fun" />
                 <Main padTop='large' height='full' style="fun" offset={true} updatedAt={data.contentfulPage.updatedAt}>
                     <div className={styles.table}>
                         <table>
@@ -33,7 +38,7 @@ class Files extends React.Component {
                             <tbody>
                             {data.allFile.edges.map(({ node }, index) => (
                                 <tr key={index}>
-                                <td><a target="_blank" href={"https://github.com/jasonjgeiger/portfolio/tree/master/src/"+node.relativePath}>{node.relativePath}</a></td>
+                                <td><a target="_blank" href={"https://github.com/jasonjgeiger/portfolio/tree/master/src/"+node.relativePath}>{node.relativePath} <FontAwesomeIcon icon="external-link-alt" /></a></td>
                                 <td>{node.prettySize}</td>
                                 {/* <td>{node.extension}</td> */}
                                 {/* <pre>{JSON.stringify(node,null,2)}</pre> */}

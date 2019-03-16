@@ -42,6 +42,7 @@ pre{
  .table-wrapper{
   width:100%;
   overflow-x: scroll;
+  overflow-y: hidden;
  }
  table{
   border-collapse: collapse;
@@ -57,16 +58,20 @@ pre{
   tbody{
     tr{}
     td{
-      padding:1rem 3rem 2px 0;
-      box-shadow:inset 0 -0.0625rem 0 white;
+      padding:0.5rem 3rem 0.5rem 0;
+      box-shadow:inset 0 -0.0625rem 0 $blue;
       a{
         text-decoration: none;
         padding-bottom:5px;
-        box-shadow:inset 0 -0.0625rem 0 $blue;
-        transition: box-shadow 0.25s, padding 0.25s;
+        box-shadow:none !important;
+        svg{
+          color:white;
+          @extend .icon;
+
+        }
         &:hover{
           padding-bottom:5px;
-          box-shadow:inset 0 -0.25rem 0 $blue;
+          box-shadow: none;
         }
       }
     }

@@ -8,10 +8,59 @@ contentfulConfig = {
 const { spaceId, accessToken } = contentfulConfig
 
 if (!spaceId || !accessToken) {
-throw new Error(
-  'Contentful spaceId and the delivery token need to be provided.'
-)
+  throw new Error(
+    'Contentful spaceId and the delivery token need to be provided.'
+  )
 }
+
+//QUERIES FOR ALGOLIA
+const pageQuery = `{
+  allSitePage {
+    edges {
+      node {
+        objectID: id
+        component
+        path
+        componentChunkName
+        jsonName
+        internal {
+          type
+          contentDigest
+          owner
+        }
+      }
+    }
+  }
+}`
+const query = `{
+  allContentfulResource {
+    edges {
+      node {
+        title
+        description
+        source
+        thumbnail{
+          file{
+            url
+            fileName
+          }
+          title
+          description
+          
+        }
+        updatedAt
+      }
+    }
+  }
+}`
+const queries = [{
+    indexName: `test`,
+    transformer: ({ data }) => data.allContentfulResource.edges.map(({ node }) => node), // optional
+    query,
+    // settings: {
+    //   attributesToSnippet: ['path:5', 'internal'],
+    // },
+}]
 
 //PLUGINS
 module.exports = {
@@ -24,6 +73,17 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     {
+      resolve: 'gatsby-source-contentful',
+      options: contentfulConfig,
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-sass`,
       options: {
         cssLoaderOptions: {
@@ -34,15 +94,14 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-plugin-algolia',
       options: {
-        name: `src`,
-        path: `${__dirname}/src/`,
+        appId: process.env.ALGOLIA_APPID,
+        apiKey: process.env.ALGOLIA_APIKEY,
+        indexName: process.env.ALGOLIA_INDEXNAME, // for all queries
+        queries,
+        chunkSize: 10000, // default: 1000
       },
     },
-    {
-      resolve: 'gatsby-source-contentful',
-      options: contentfulConfig,
-    }
   ],
 }

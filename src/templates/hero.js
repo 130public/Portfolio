@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames/bind'
 import styles from './hero.module.scss'
-import Animation from '../components/hero-animation';
+import Markdown from '../components/markdown';
 
 
 let cx = classNames.bind(styles);

@@ -9,6 +9,7 @@ import Link from '../components/link'
 import Data from '../templates/data'
 import styles from './index.module.scss'
 import ResourceCard from "../components/card-resource";
+import SocialProfiles from "../components/social-profiles";
 import ResourceCardStyles from '../components/grid-resources.module.scss'
 
 let cx = classNames.bind([styles,ResourceCardStyles]);
@@ -33,7 +34,7 @@ class Index extends React.Component {
         <Hero style="fun" title={data.contentfulPage.title} body={data.contentfulPage.content.body}>
           <p><span><strong>Obligatory Hashtags:</strong></span><br/>
           #design #development #designthinking #prototyping #accessibility</p>
-          
+          <SocialProfiles/>
         </Hero>
         <Main padTop='none' height='auto' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
           <h2>Recently read or found</h2>

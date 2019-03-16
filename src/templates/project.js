@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Container from '../templates/container'
 import Main from '../templates/main'

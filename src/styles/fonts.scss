@@ -3,7 +3,7 @@ $font-weights: (
 	regular: 400, 
 	bold: 700
 );
-$font-path: '/assets/fonts/';
+$font-path: '/assets/fonts';
 
 @mixin font-face($font-name, $prefix, $fallback) {
 	
@@ -28,8 +28,8 @@ $font-path: '/assets/fonts/';
   }
 }
 
-@include font-face('GT Pressura','pressura','Tahoma, Arial, Helvetica, sans-serif');
-@include font-face('GT Pressura Mono','pressura-mono','Courier, monospace');
+@include font-face('GT Pressura','gt-pressura','Tahoma, Arial, Helvetica, sans-serif');
+@include font-face('GT Pressura Mono','gt-pressura-mono','Courier, monospace');
 @include font-weight();
 
 @font-face {

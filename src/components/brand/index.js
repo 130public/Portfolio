@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames/bind';
-import Link from '../components/link'
+import Link from '../link'
 import styles from './brand.module.scss'
 
 let cx = classNames.bind(styles);
