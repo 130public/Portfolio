@@ -1,12 +1,12 @@
 import React from 'react'
 import classNames from 'classnames/bind';
-import Header from './header'
-import Footer from './footer'
-import styles from './container.module.scss'
+import Header from '../header'
+import Footer from '../footer'
+import styles from './page.module.scss'
 
 let cx = classNames.bind(styles);
 
-export default class Container extends React.Component {
+export default class Page extends React.Component {
   render(){
     let classes = cx([
       styles.root, this.props.className, 'typography'

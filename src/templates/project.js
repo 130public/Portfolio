@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import Container from '../templates/container'
-import Main from '../templates/main'
-import Hero from '../templates/hero'
+import Page from '../components/page'
+import Hero from '../components/hero'
+import Main from '../components/main'
 
 class ProjectTemplate extends React.Component {
   render() {
@@ -11,7 +11,7 @@ class ProjectTemplate extends React.Component {
     const{data,location} = this.props;
 
     return (
-      <Container>
+      <Page>
         <Helmet>
           <title>{data.contentfulProject.title} {data.site.siteMetadata.title}</title>
           <base target="_blank" href={location.href} />
@@ -22,7 +22,7 @@ class ProjectTemplate extends React.Component {
         <Main padTop='large' style="alt" offset={true} updatedAt={data.contentfulProject.updatedAt}>
           <pre>{JSON.stringify(this.props,null, 2)}</pre>
       </Main>
-    </Container>
+    </Page>
     )
   }
 }

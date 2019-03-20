@@ -1,9 +1,9 @@
 import React from 'react'
 import classNames from 'classnames/bind';
-import Brand from '../components/brand'
+import Brand from '../brand'
+import Navigation from '../navigation'
 
 import styles from './header.module.scss'
-import Navigation from './navigation'
 
 let cx = classNames.bind(styles);
 let brandStyle = cx(["brand-module--invert",styles.brand]);

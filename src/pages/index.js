@@ -2,17 +2,17 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import classNames from 'classnames/bind'
 import Helmet from 'react-helmet'
-import Container from '../templates/container'
-import Main from '../templates/main'
-import Hero from '../templates/hero'
+import Page from '../components/page'
+import Main from '../components/main'
+import Hero from '../components/hero'
 import Link from '../components/link'
-import Data from '../templates/data'
-import styles from './index.module.scss'
-import ResourceCard from "../components/card-resource";
+import Card from "../components/card";
 import SocialProfiles from "../components/social-profiles";
-import ResourceCardStyles from '../components/grid-resources.module.scss'
+//
+import gridStyles from '../components/search/search.module.scss'
+import indexStyles from './index.module.scss'
 
-let cx = classNames.bind([styles,ResourceCardStyles]);
+let cx = classNames.bind([indexStyles,gridStyles]);
 
 class Index extends React.Component {
   render() {
@@ -20,11 +20,11 @@ class Index extends React.Component {
     const{data,location} = this.props;
 
     let classes = cx([
-      styles.root, this.props.className,
+      indexStyles.root, this.props.className,
     ]);
 
     return (
-      <Container>
+      <Page>
         <Helmet>
           <title>{data.contentfulPage.metaTitle} {data.site.siteMetadata.title}</title>
           <base target="_blank" href={location.href} />
@@ -38,18 +38,20 @@ class Index extends React.Component {
         </Hero>
         <Main padTop='none' height='auto' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
           <h2>Recently read or found</h2>
-          <ul className={ResourceCardStyles.grid}>
-              {data.allContentfulResource.edges.slice(0, 3).map(({ node }) => {
-                return (
-                  <li key={node.slug} className={ResourceCardStyles.gridItem}>
-                    <ResourceCard post={node} />
-                  </li>
-                )
-              })}
-          </ul>
+          <div className={gridStyles.hits}>
+            <ul>
+                {data.allContentfulResource.edges.slice(0, 3).map(({ node }) => {
+                  return (
+                    <li key={node.slug}>
+                      <Card hit={node} />
+                    </li>
+                  )
+                })}
+            </ul>
+          </div>
           <Link type="button" to="/resources">More</Link>
         </Main>
-        </Container>
+        </Page>
     )
   }
 }

@@ -1,9 +1,12 @@
-require('dotenv').config()
+let env = process.env.NODE_ENV || 'development';
+require('dotenv').config({path: `./.env.${env}`}); 
+
+const queries = require('./src/utils/algolia')
 
 //CONTENTFUL
 contentfulConfig = {
-  spaceId: process.env.CONTENTFUL_SPACE_ID || '',
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || ''
+  spaceId: `${process.env.CONTENTFUL_SPACE_ID}` || '',
+  accessToken: `${process.env.CONTENTFUL_ACCESS_TOKEN}` || ''
 }
 const { spaceId, accessToken } = contentfulConfig
 
@@ -13,54 +16,7 @@ if (!spaceId || !accessToken) {
   )
 }
 
-//QUERIES FOR ALGOLIA
-const pageQuery = `{
-  allSitePage {
-    edges {
-      node {
-        objectID: id
-        component
-        path
-        componentChunkName
-        jsonName
-        internal {
-          type
-          contentDigest
-          owner
-        }
-      }
-    }
-  }
-}`
-const query = `{
-  allContentfulResource {
-    edges {
-      node {
-        title
-        description
-        source
-        thumbnail{
-          file{
-            url
-            fileName
-          }
-          title
-          description
-          
-        }
-        updatedAt
-      }
-    }
-  }
-}`
-const queries = [{
-    indexName: `test`,
-    transformer: ({ data }) => data.allContentfulResource.edges.map(({ node }) => node), // optional
-    query,
-    // settings: {
-    //   attributesToSnippet: ['path:5', 'internal'],
-    // },
-}]
+
 
 //PLUGINS
 module.exports = {
@@ -96,9 +52,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-algolia',
       options: {
-        appId: process.env.ALGOLIA_APPID,
-        apiKey: process.env.ALGOLIA_APIKEY,
-        indexName: process.env.ALGOLIA_INDEXNAME, // for all queries
+        appId: `${process.env.ALGOLIA_APPID}`,
+        apiKey: `${process.env.ALGOLIA_APIKEY}`,
+        //indexName: process.env.ALGOLIA_INDEXNAME, // for all queries
         queries,
         chunkSize: 10000, // default: 1000
       },

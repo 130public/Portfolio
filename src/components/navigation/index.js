@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames/bind';
-import Link from '../components/link'
+import Link from '../link'
 import styles from './navigation.module.scss'
 
 let cx = classNames.bind(styles);
@@ -22,6 +22,9 @@ export default class Navigation extends React.Component {
             </li>
             <li className={styles.item}>
               <Link className={styles.link} to="/resume/">Resume </Link>
+            </li>
+            <li className={styles.item}>
+              <Link className={styles.link} to="/search/">Search </Link>
             </li>
           </ul>
         </div>

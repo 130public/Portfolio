@@ -1,4 +1,4 @@
-@import '../styles/base.scss';
+@import '../../styles/base.scss';
 .root{
     position:relative;
     @extend .u-gutters-lg;
@@ -18,8 +18,10 @@
     background:black;
 }
 .fun{
-    
-    background: none;
+    background-image:linear-gradient(145deg, $blue, $purple);
+}
+.blank{
+    background:none;
 }
 .headline,.body{
     @extend .u-width--max;

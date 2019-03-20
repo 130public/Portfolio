@@ -1,0 +1,14 @@
+.hits{
+  ul{
+    margin:1rem -0.5rem;
+    padding:0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+    grid-gap: 0.25rem;
+  }
+  li {
+    margin:0;
+    padding: 0.3em 0.5em;
+    list-style: none;
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import Container from '../templates/container'
+import Page from '../components/page'
 import Animation from '../components/hero-animation';
 
 
@@ -10,9 +10,9 @@ class Fun extends React.Component {
   
 
     return (
-      <Container>
+      <Page>
         <Animation />
-        </Container>
+        </Page>
     )
   }
 }

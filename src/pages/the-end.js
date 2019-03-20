@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import Container from '../templates/container'
-import Hero from '../templates/hero'
-import Main from '../templates/main'
+import Page from '../components/page'
+import Hero from '../components/hero'
+import Main from '../components/main'
 import styles from './the-end.module.scss'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -18,14 +18,14 @@ class Files extends React.Component {
     
 
         return (
-            <Container className="fun">
+            <Page className="fun">
                 <Helmet>
                     <title>Colophon of {data.site.siteMetadata.title}</title>
                     <base target="_blank" href={location.href} />
                     {/* <meta name="description" content={data.contentfulPage.metaDescription} />
                     <meta property="og:type" content="article" /> */}
                 </Helmet>
-                <Hero title={data.contentfulPage.title} title={data.contentfulPage.title} body={data.contentfulPage.content.body} style="fun" />
+                <Hero title={data.contentfulPage.title} title={data.contentfulPage.title} body={data.contentfulPage.content.body} style="blank" />
                 <Main padTop='large' height='full' style="fun" offset={true} updatedAt={data.contentfulPage.updatedAt}>
                     <div className={styles.table}>
                         <table>
@@ -49,7 +49,7 @@ class Files extends React.Component {
                         </table>
                     </div>
                 </Main>
-            </Container>
+            </Page>
         )
     }
 }

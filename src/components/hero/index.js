@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames/bind'
 import styles from './hero.module.scss'
-import Markdown from '../components/markdown';
+import Markdown from '../markdown';
 
 
 let cx = classNames.bind(styles);

@@ -1,4 +1,4 @@
-@import '../styles/base.scss';
+@import "../../../styles/base.scss";
 .card{
   margin:0;
   padding:2rem 0 0;
@@ -30,8 +30,8 @@
   overflow: hidden;
 }
 .image img{ 
-  height:100%;
-  width:auto;
+  height:auto;
+  width:100%;
   @extend .image--style-grayscale;
   border:1px solid #f4f4f4;
 }

@@ -1,0 +1,71 @@
+@import "../../styles/base.scss";
+.card{
+  margin:0;
+  padding:0;
+  color:black;
+  border:2px solid black;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  &:hover{
+    border-color:$blue;
+    .heading,.description{color:$blue;}
+    .image {background: $blue;border-color: $blue;}
+  }
+}
+.alt{
+  background: white;
+}
+.image{
+  position: relative;
+  display:inline-block;
+  margin:0;
+  padding:0;
+  background:black;
+  padding-top:56.25%;
+  width:100%;
+  overflow: hidden;
+  border-bottom: 2px solid black;
+  transition:all 500ms;
+}
+.image img{ 
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  @extend .image--style-grayscale;
+}
+.caption{
+  display:inline-block;
+  margin:0;
+  padding: 0 1rem 1rem;
+}
+.disguise{
+  position: relative;
+  overflow: hidden;
+  &:before{
+    position: absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    height:24px;
+    content:"";
+    box-shadow: inset 0px -20px 15px -5px #fff;
+    z-index:1;
+  }
+}
+.heading{
+  @extend .disguise;
+  @extend .type--subtitle2;
+  height: 84px;
+  vertical-align: middle;
+}
+.description{
+  @extend .disguise;
+  height:106px;
+}
+a{
+  color:$blue;
+  >*{color:black;}
+}

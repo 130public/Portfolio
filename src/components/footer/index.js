@@ -1,5 +1,5 @@
 import React from 'react'
-import Brand from '../components/brand'
+import Brand from '../brand'
 import styles from './footer.module.scss'
 
 

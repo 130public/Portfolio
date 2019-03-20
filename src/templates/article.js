@@ -1,7 +1,5 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import get from 'lodash/get'
-import Hero from './hero'
 import Img from 'gatsby-image'
 
 class ArticleTemplate extends React.Component {

@@ -1,4 +1,4 @@
-@import '../styles/base.scss';
+@import '../../styles/base.scss';
 .root{
   width: 100%;
   @extend .typography;
@@ -18,10 +18,10 @@
     left: 0;
     content: "";
     pointer-events: none;
-    background-attachment: fixed;
-    background-image: url(http://130public.net/assets/img/texture.png);
+    // background-attachment: fixed;
+    // background-image: url(http://130public.net/assets/img/texture.png);
   }
-  a{
+  .hero a, main a{
     color:white;
     box-shadow: inset 0 -0.125em 0 0 white;
   }

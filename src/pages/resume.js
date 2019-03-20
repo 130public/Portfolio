@@ -2,9 +2,9 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import Container from '../templates/container'
-import Main from '../templates/main'
-import Hero from '../templates/hero'
+import Page from '../components/page'
+import Hero from '../components/hero'
+import Main from '../components/main'
 import Article from '../templates/article'
 
 class Resume extends React.Component {
@@ -12,7 +12,7 @@ class Resume extends React.Component {
     const{data,location} = this.props;
 
     return (
-      <Container>
+      <Page>
         <Helmet>
           <title>{data.contentfulPage.metaTitle} {data.site.siteMetadata.title}</title>
           <base target="_blank" href={location.href} />
@@ -23,7 +23,7 @@ class Resume extends React.Component {
         <Main padTop='large' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
           <Article title="Jason J. Geiger" content={"content"} />
         </Main>
-        </Container>
+        </Page>
     )
   }
 }

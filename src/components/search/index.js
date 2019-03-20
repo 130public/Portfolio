@@ -1,38 +1,57 @@
 import React, { Component, createRef } from 'react'
 import {
   InstantSearch,
-  SearchBox,
-  Hits,
   Index,
-  connectAutoComplete
+  Hits,
+  connectStateResults,
 } from 'react-instantsearch-dom'
 
+import Grid from '../grid'
+import Input from './input'
+import * as hitComps from './hits'
+import styles from './search.module.scss'
 
-const Hit = function(hit){ return (
-  <div>
-    <pre>{JSON.stringify(hit,null,2)}</pre>
-  </div>
-)}
+const Results = connectStateResults(
+  ({ searchState: state, searchResults: res, children }) =>
+    res && res.nbHits ? children : `No results for ${state.query}`
+)
+
+const Stats = connectStateResults(
+  ({ searchResults: res }) =>
+    res && res.nbHits > 0 && `${res.nbHits} result${res.nbHits > 1 ? `s` : ``}`
+)
 
 export default class Search extends Component {
+  state = { query: ``, focussed: false, ref: createRef() }
+
+  updateState = state => this.setState(state)
 
   render() {
-    
-    const {indices} = this.props;
-
+    const { query, focussed, ref } = this.state
+    const { indices } = this.props
     return (
-      <div>
       <InstantSearch
-        appId="Z1PZEF7EGE"
-        apiKey="072919c93ead458a15a4426547f71d52"
-        indexName="Resource"
+        appId={process.env.ALGOLIA_APPID}
+        apiKey={process.env.ALGOLIA_APIKEY}
+        indexName={indices[0].name}
+        onSearchStateChange={this.updateState}
       >
-        <SearchBox translation={{placholder:"Search"}}/>
-
-        <Hits hitComponent={Hit} />
-      </InstantSearch> 
-     
-     </div>
+        <Input  />
+        <div>
+          {indices.map(({ name, title, hitComp }) => (
+            <Index key={name} indexName={name}>
+              <header>
+                <h3>{title}: <Stats /></h3>
+              </header>
+              <Results>
+                <Grid>
+                  <Hits className={styles.hits} hitComponent={hitComps[hitComp]} />
+                </Grid>
+              </Results>
+            </Index>
+          ))}
+        </div>
+      </InstantSearch>
     )
   }
 }
