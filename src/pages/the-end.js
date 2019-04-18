@@ -71,7 +71,7 @@ export const filesPageQuery = graphql`
         content {
             body
         },
-        updatedAt(formatString: "Y-MM-D")
+        updatedAt(formatString: "Y-MM-DD")
     }
     allFile {
       edges {

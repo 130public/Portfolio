@@ -2,6 +2,7 @@ import React from "react";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTwitter, faLinkedin, faGithub, faFlipboard, faMedium } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styles from './socialProfiles.module.scss'
 
 library.add(faTwitter,faLinkedin,faGithub, faFlipboard, faMedium);
 
@@ -9,21 +10,21 @@ export default class Markdown extends React.Component {
 
   render() {
     return (
-      <ul>
+      <ul className={styles.socialList}>
         <li><a target="_blank" href="https://www.linkedin.com/in/jasonjgeiger/">
-          <FontAwesomeIcon icon={faLinkedin} />
+          <FontAwesomeIcon size="2x" icon={faLinkedin} />
         </a></li>
         <li><a target="_blank" href="https://twitter.com/jasonjgeiger">
-          <FontAwesomeIcon icon={faTwitter} />
+          <FontAwesomeIcon size="2x" icon={faTwitter} />
         </a></li>
         <li><a target="_blank" href="https://github.com/jasonjgeiger">
-          <FontAwesomeIcon icon={faGithub} />
+          <FontAwesomeIcon size="2x" icon={faGithub} />
         </a></li>
         <li><a target="_blank" href="https://flipboard.com/@developmental">
-          <FontAwesomeIcon icon={faFlipboard} />
+          <FontAwesomeIcon size="2x" icon={faFlipboard} />
         </a></li>
         <li><a target="_blank" href="https://medium.com/@jasonjgeiger">
-          <FontAwesomeIcon icon={faMedium} />
+          <FontAwesomeIcon size="2x" icon={faMedium} />
         </a></li>
       </ul>
     );

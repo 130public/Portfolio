@@ -15,16 +15,10 @@ export default class Navigation extends React.Component {
         <div className={styles.frame}>
           <ul className={styles.list}>
             <li className={styles.item}>
-              <Link className={styles.link} to="/projects/">Projects</Link>
-            </li>
-            <li className={styles.item}>
               <Link className={styles.link} to="/resources/">Resources</Link>
             </li>
             <li className={styles.item}>
-              <Link className={styles.link} to="/resume/">Resume </Link>
-            </li>
-            <li className={styles.item}>
-              <Link className={styles.link} to="/search/">Search </Link>
+              <Link className={styles.link} to="/resume/">CV </Link>
             </li>
           </ul>
         </div>

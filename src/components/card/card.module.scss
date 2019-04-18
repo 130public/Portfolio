@@ -8,6 +8,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   &:hover{
+    cursor: pointer;
     border-color:$blue;
     .heading,.description{color:$blue;}
     .image {background: $blue;border-color: $blue;}

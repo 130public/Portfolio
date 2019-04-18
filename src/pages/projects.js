@@ -44,7 +44,7 @@ export const projectsPageQuery = graphql`
       slug,
       metaTitle,
       metaDescription,
-      updatedAt(formatString: "Y-MM-D")
+      updatedAt(formatString: "Y-MM-DD")
     }
   }
 `

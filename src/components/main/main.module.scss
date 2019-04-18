@@ -10,14 +10,14 @@
 }
 .offset{
   @extend .u-gutters-lg;
-  @extend .u-spacers--inside-lg;
+  @extend .u-spacers--inside-sm;
 }
 .alt{
   background:black;
   color:#FFF;
 }
 .padding-top-large{
-  padding-top:5rem;
+  padding-top:2rem;
 }
 .height-full{
   min-height: calc(100vh - 10rem);

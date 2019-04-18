@@ -7,7 +7,7 @@ import Main from '../components/main'
 import Hero from '../components/hero'
 import Link from '../components/link'
 import Card from "../components/card";
-import SocialProfiles from "../components/social-profiles";
+import SocialProfiles from "../components/socialProfiles";
 //
 import gridStyles from '../components/search/search.module.scss'
 import indexStyles from './index.module.scss'
@@ -23,6 +23,33 @@ class Index extends React.Component {
       indexStyles.root, this.props.className,
     ]);
 
+    const hashtags = [
+      "designer",
+      "human centric design",
+      "user experience",
+      "user research",
+      
+      "prototyping",
+      
+      "user testing",
+      "information architecture",
+      "wireframes",
+      "user interface",
+      "learning psychology",
+      "design thinking",
+      "frontend development",
+      "marketing",
+      "invision",
+      "sketch",
+      "axure",
+      "bem",
+      "sass",
+      "html5",
+      "javascript",
+      "react",
+      "nodejs"
+    ];
+
     return (
       <Page>
         <Helmet>
@@ -32,12 +59,15 @@ class Index extends React.Component {
           <meta property="og:type" content="article" />
         </Helmet>
         <Hero style="fun" title={data.contentfulPage.title} body={data.contentfulPage.content.body}>
-          <p><span><strong>Obligatory Hashtags:</strong></span><br/>
-          #design #development #designthinking #prototyping #accessibility</p>
+          <p className={indexStyles.hashtags}>
+            {hashtags.map(function(name){
+              return <span className={indexStyles.hashtag}>#{name}</span>;
+            })}
+          </p>
           <SocialProfiles/>
         </Hero>
         <Main padTop='none' height='auto' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
-          <h2>Recently read or found</h2>
+          <h2>Recently read or watched</h2>
           <div className={gridStyles.hits}>
             <ul>
                 {data.allContentfulResource.edges.slice(0, 3).map(({ node }) => {
@@ -70,7 +100,7 @@ export const indexPageQuery = graphql`
       slug,
       metaTitle,
       metaDescription,
-      updatedAt(formatString: "Y-MM-D")
+      updatedAt(formatString: "Y-MM-DD")
       content{
         hashtags
       }
@@ -91,7 +121,6 @@ export const indexPageQuery = graphql`
             }
             title
             description
-            
           }
           updatedAt
         }

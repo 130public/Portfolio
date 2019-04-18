@@ -1,0 +1,23 @@
+@import '../styles/base.scss';
+h2{
+  margin:0;
+  padding:0;
+  &:last-of-type{
+    margin-top:24px;
+  }
+}
+.workItem{
+  margin:0;
+  padding:24px 0 24px;
+  border-bottom:1px solid #CCCCCC;
+  h3,p{
+    margin:0;
+    padding:0;
+  }
+  &:last-of-type{
+    border:0;
+  }
+  .timeline{
+    font-style: italic;
+  }
+}
