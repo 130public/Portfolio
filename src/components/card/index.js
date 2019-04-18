@@ -23,8 +23,14 @@ class Card extends React.Component {
     }else{
       CTA = <Link to={`/projects/${hit.slug}`}>Read More</Link>
     }
+
+    function redirectToSource(){
+      console.log(hit.source);
+      window.open(hit.source,"_blank");
+    }
+
     return (
-      <figure className={styles.card}>
+      <figure className={styles.card} onClick={redirectToSource}>
           <div className={styles.image}>
             <img src={hit.thumbnail.file.url} title={hit.thumbnail.title} alt={hit.thumbnail.description}/>
           </div>
