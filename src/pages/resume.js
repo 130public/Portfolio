@@ -19,7 +19,7 @@ class Resume extends React.Component {
           <meta property="og:type" content="article" />
         </Helmet>
         <Hero title="Curriculum vitae" body="As a designer, I focus on user advocacy &amp; experience strategy; designing tools and services that empower people to learn more effectively. As a designer, I develop solutions that find the balance of business need, learning psychology, problem solving, technology, and craft." style="default">
-          <a href="#">Download resume</a>
+          <a href="/assets/jasonjgeiger-resume.pdf">Download resume</a>
         </Hero>
         <Main padTop='large' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
           <article className="article">
@@ -56,9 +56,14 @@ class Resume extends React.Component {
             </div>
             <h2>Education</h2>
             <div className={styles.workItem}>
+              <h3>Microsoft Certified: Azure Fundamentals</h3>
+              <p className={styles.timeline}>2019</p>
+              <p>Prove that you understand cloud concepts, core Azure Services, Azure pricing and support, and the fundamentals of cloud security, privacy, compliance, and trust.</p>
+            </div>
+            <div className={styles.workItem}>
               <h3>Arizona State University - Bachelor of Science in Design</h3>
               <p className={styles.timeline}>2003-2009</p>
-              <p>I attended Visual Communication Department of Arizona State University, a part of the College of Design. I graduated with a Bachelor of Science in Design, Visual Communication Design with an emphasis on Interaction Design. Additional studies in Human Computer Interaction &amp;amp; Molecular Bioscience and Biotechnology.</p>
+              <p>I attended the College of Design at Arizona State University. I graduated with a Bachelor of Science in Design, Visual Communication – emphasis on Human Computer Interaction &amp; User Experience. Additional studies in Molecular Bioscience and Biotechnology.</p>
             </div>
           </article>
         </Main>
