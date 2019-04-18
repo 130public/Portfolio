@@ -18,7 +18,7 @@ class Resume extends React.Component {
           <meta name="description" content={data.contentfulPage.metaDescription} />
           <meta property="og:type" content="article" />
         </Helmet>
-        <Hero title="Jason J. Geiger" body="As a designer, I focus on user advocacy &amp; experience strategy; designing tools and services that empower people to learn more effectively. As a designer, I develop solutions that find the balance of business need, learning psychology, problem solving, technology, and craft." style="default">
+        <Hero title="Jason J. Geiger" body="As a designer, I focus on user advocacy & experience strategy; designing tools and services that empower people to learn more effectively. As a designer, I develop solutions that find the balance of business need, learning psychology, problem solving, technology, and craft." style="default">
           <p><i>Portfolio by request.</i></p>
           <a href="/assets/jasonjgeiger-resume.pdf" target="_blank">Download PDF resume</a>
         </Hero>
