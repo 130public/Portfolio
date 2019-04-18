@@ -19,7 +19,7 @@ class Resume extends React.Component {
           <meta property="og:type" content="article" />
         </Helmet>
         <Hero title="Curriculum vitae" body="As a designer, I focus on user advocacy &amp; experience strategy; designing tools and services that empower people to learn more effectively. As a designer, I develop solutions that find the balance of business need, learning psychology, problem solving, technology, and craft." style="default">
-          <a href="/assets/jasonjgeiger-resume.pdf">Download resume</a>
+          <a href="/assets/jasonjgeiger-resume.pdf" target="_blank">Download resume</a>
         </Hero>
         <Main padTop='large' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
           <article className="article">
