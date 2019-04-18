@@ -1,6 +1,8 @@
+@import '../../styles/base.scss';
 .hashtags{
-  font-size:18px;
+  @extend .type--headline6;
   white-space: normal;
+
 }
 .hashtag{
   display: inline-block;
