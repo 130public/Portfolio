@@ -64,6 +64,7 @@ class Index extends React.Component {
               return <span className={indexStyles.hashtag}>#{name}</span>;
             })}
           </p>
+          <p><i>Portfolio available by request.</i></p>
           <SocialProfiles/>
         </Hero>
         <Main padTop='none' height='auto' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
