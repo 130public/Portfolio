@@ -41,7 +41,7 @@ export default class Search extends Component {
           {indices.map(({ name, title, hitComp }) => (
             <Index key={name} indexName={name}>
               <header>
-                <h3>{title}: <Stats /></h3>
+                <h3>{title} count: <Stats /></h3>
               </header>
               <Results>
                 <Grid>

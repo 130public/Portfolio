@@ -21,7 +21,7 @@ class ResourcesIndex extends React.Component {
           <meta name="description" content={data.contentfulPage.metaDescription} />
           <meta property="og:type" content="article" />
         </Helmet>
-        <Hero title={data.contentfulPage.title} body="" className="margin" />
+        <Hero title={data.contentfulPage.title} body="Recently read or watched. Learning resources related to design, psychology, accessibility, user research, computer science, artificial intelligence, and  machine learning" className="margin" />
         <Main padTop='large' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
           <Search collapse indices={searchIndices} />
         </Main>

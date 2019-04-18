@@ -22,7 +22,7 @@ if (!spaceId || !accessToken) {
 module.exports = {
   pathPrefix: '/gatsby-contentful-starter',
   siteMetadata: {
-    title: `the portfolio of Jason J Geiger`,
+    title: ` - The portfolio of Jason J Geiger`,
   },
   plugins: [
     'gatsby-transformer-remark',
