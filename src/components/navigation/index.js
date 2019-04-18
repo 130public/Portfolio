@@ -20,6 +20,10 @@ export default class Navigation extends React.Component {
             <li className={styles.item}>
               <Link className={styles.link} to="/resources/">Resources</Link>
             </li>
+            <li className={styles.item}>
+              <Link className={styles.link} to="/the-end/">Colophon</Link>
+            </li>
+            
           </ul>
         </div>
       </nav>
