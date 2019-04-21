@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import Page from '../components/page'
-import Hero from '../components/hero'
-import Main from '../components/main'
+import Page from '../page'
+import Hero from '../hero'
+import Main from '../main'
 
 class ProjectTemplate extends React.Component {
   render() {

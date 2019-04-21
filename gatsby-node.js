@@ -5,7 +5,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
 
   return new Promise((resolve, reject) => {
-    const projectItems = path.resolve('./src/templates/project.js')
+    const projectItems = path.resolve('./src/components/project')
     resolve(
       graphql(
         `

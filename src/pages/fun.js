@@ -1,6 +1,6 @@
 import React from 'react'
 import Page from '../components/page'
-import Animation from '../components/hero-animation';
+import Animation from '../components/experiments/hero-animation';
 
 
 
