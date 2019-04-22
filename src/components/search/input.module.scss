@@ -1,3 +1,22 @@
+@import '../../styles/base.scss';
+label{
+  font-size:18px;
+  padding-bottom:3px;
+  line-height:32px;
+  border-bottom:2px solid #000;
+}
 input{
-  
+  margin:0 0 0 8px;
+  padding:0 8px;
+  border-width:2px;
+  border-style:solid;
+  border-color:white white #000 white;
+  background:#FFF;
+  height:32px;
+  line-height:32px;
+  font-size:16px;
+  &:focus{
+    border-color: $blue $blue #000 $blue;
+    outline: none;
+  }
 }

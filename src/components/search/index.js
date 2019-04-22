@@ -18,7 +18,7 @@ const Results = connectStateResults(
 
 const Stats = connectStateResults(
   ({ searchResults: res }) =>
-    res && res.nbHits > 0 && `${res.nbHits} result${res.nbHits > 1 ? `s` : ``}`
+    res && res.nbHits > 0 && `${res.nbHits} item${res.nbHits > 1 ? `s` : ``}`
 )
 
 export default class Search extends Component {
@@ -36,12 +36,16 @@ export default class Search extends Component {
         indexName={indices[0].name}
         onSearchStateChange={this.updateState}
       >
-        <Input  />
         <div>
           {indices.map(({ name, title, hitComp }) => (
             <Index key={name} indexName={name}>
               <header>
-                <h3>{title} count: <Stats /></h3>
+                <div>
+                <h3>Results: <Stats /></h3>
+                </div>
+                <div>
+                  <Input  />
+                </div>
               </header>
               <Results>
                 <Grid>

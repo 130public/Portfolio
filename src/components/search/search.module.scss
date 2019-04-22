@@ -12,3 +12,17 @@
     list-style: none;
   }
 }
+header{
+  display: grid;
+  grid-gap: 0.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  div:first-of-type{text-align: left;}
+  div:last-of-type{text-align: right;}
+  h3{
+    margin:0;
+    padding:0;
+    font-size:18px;
+    line-height:32px;
+    font-weight: normal;
+  }
+}
