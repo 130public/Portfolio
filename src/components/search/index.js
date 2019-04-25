@@ -3,7 +3,7 @@ import {
   InstantSearch,
   Index,
   Hits,
-  connectStateResults,
+  connectStateResults
 } from 'react-instantsearch-dom'
 
 import Grid from '../grid'
@@ -33,6 +33,7 @@ export default class Search extends Component {
       <InstantSearch
         appId={process.env.ALGOLIA_APPID}
         apiKey={process.env.ALGOLIA_APIKEY}
+        createURL={searchState => `?q=${searchState.query}`}
         indexName={indices[0].name}
         onSearchStateChange={this.updateState}
       >
