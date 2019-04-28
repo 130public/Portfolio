@@ -32,7 +32,13 @@ const ResourceIndexQuery = `{
           title
           description
         }
+        skills {
+          ... on ContentfulSkill {
+            name
+          }
+        }
         updatedAt
+        createdAt
       }
     }
   }

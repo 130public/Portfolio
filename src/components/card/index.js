@@ -28,19 +28,36 @@ class Card extends React.Component {
       console.log(hit.source);
       window.open(hit.source,"_blank");
     }
+    const Skillslist = props => {
+      const {data,count} = props;
+      var skillString ="";
 
+      if(data != undefined){
+        const sliceCount = (count != undefined) ? count : data.length;
+        var ending = ";"
+        data.slice(0, sliceCount).map(( {name}, index ) => {
+
+          if(index < sliceCount-1) ending = ", "
+          if(index == data.length-1) ending = ""
+          if(index == sliceCount-1) ending = "…"
+          
+          skillString += name+ending;
+        })
+      }
+
+      return skillString;
+    }
     return (
       <figure className={styles.card} onClick={redirectToSource}>
           <div className={styles.image}>
             <img src={hit.thumbnail.file.url} title={hit.thumbnail.title} alt={hit.thumbnail.description}/>
           </div>
           <figcaption className={styles.caption}>
-            <div className={styles.heading}>
-              <h3 className="type--subtitle1">{hit.title}</h3>
-            </div>
-            <div class={styles.description}>
-              <p className="type--body1">{description}</p>
-            </div>
+            <h3 className={styles.heading}>{hit.title}</h3>
+            <p className={styles.description}>{description}</p>
+            <p className={styles.skills}>
+              Topics: <Skillslist data={hit.skills} count={3} />
+            </p>
             {CTA}
           </figcaption>
       </figure>

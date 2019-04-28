@@ -28,9 +28,7 @@ class Index extends React.Component {
       "human centric design",
       "user experience",
       "user research",
-      
       "prototyping",
-      
       "user testing",
       "information architecture",
       "wireframes",
@@ -123,7 +121,13 @@ export const indexPageQuery = graphql`
             title
             description
           }
+          skills {
+            ... on ContentfulSkill {
+              name
+            }
+          }
           updatedAt
+          createdAt
         }
       }
     }
