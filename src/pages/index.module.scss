@@ -9,3 +9,6 @@
   padding-right:6px;
   white-space: normal;
 }
+.bio{
+  @extend .type--headline6;
+}

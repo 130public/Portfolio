@@ -21,9 +21,9 @@ class ResourcesIndex extends React.Component {
           <meta name="description" content={data.contentfulPage.metaDescription} />
           <meta property="og:type" content="article" />
         </Helmet>
-        <Hero title={data.contentfulPage.title} body="Recently read or watched. Learning resources related to design, psychology, accessibility, user research, computer science, artificial intelligence, and  machine learning" className="margin" />
+        <Hero title={data.contentfulPage.title} body={data.contentfulPage.body.body} className="margin" />
         <Main padTop='large' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
-          <Search collapse indices={searchIndices} />
+          <Search collapse indices={searchIndices} location={this.props.location} history={this.props.history} />
         </Main>
       </Page>
     )
@@ -44,6 +44,9 @@ export const resourcesPageQuery = graphql`
       slug,
       metaTitle,
       metaDescription,
+      body{
+        body
+      }
       updatedAt(formatString: "Y-MM-DD")
     }
   }

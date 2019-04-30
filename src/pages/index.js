@@ -7,6 +7,7 @@ import Main from '../components/main'
 import Hero from '../components/hero'
 import Link from '../components/link'
 import Card from "../components/card";
+import Markdown from '../components/markdown';
 import SocialProfiles from "../components/socialProfiles";
 //
 import gridStyles from '../components/search/search.module.scss'
@@ -23,31 +24,6 @@ class Index extends React.Component {
       indexStyles.root, this.props.className,
     ]);
 
-    const hashtags = [
-      "designer",
-      "human centric design",
-      "user experience",
-      "user research",
-      "prototyping",
-      "user testing",
-      "information architecture",
-      "wireframes",
-      "user interface",
-      "learning psychology",
-      "design thinking",
-      "frontend development",
-      "marketing",
-      "invision",
-      "sketch",
-      "axure",
-      "bem",
-      "sass",
-      "html5",
-      "javascript",
-      "react",
-      "nodejs"
-    ];
-
     return (
       <Page>
         <Helmet>
@@ -56,16 +32,18 @@ class Index extends React.Component {
           <meta name="description" content={data.contentfulPage.metaDescription} />
           <meta property="og:type" content="article" />
         </Helmet>
-        <Hero style="fun" title={data.contentfulPage.title} body={data.contentfulPage.content.body}>
+        <Hero style="fun" title={data.contentfulPage.title}>
           <p className={indexStyles.hashtags}>
-            {hashtags.map(function(name){
-              return <span className={indexStyles.hashtag}>#{name}</span>;
+            <b>Obligitory hashtags: </b><br/>
+            {data.contentfulPage.skills.map(function({name},index){
+              return <span key={index} className={indexStyles.hashtag}>#{name}</span>;
             })}
           </p>
           <p><i>Portfolio available by request.</i></p>
           <SocialProfiles/>
         </Hero>
         <Main padTop='none' height='auto' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
+          <p className={indexStyles.bio}><Markdown value={data.contentfulPage.body.body} /></p>
           <h2>Recently read or watched</h2>
           <div className={gridStyles.hits}>
             <ul>
@@ -100,11 +78,13 @@ export const indexPageQuery = graphql`
       metaTitle,
       metaDescription,
       updatedAt(formatString: "Y-MM-DD")
-      content{
-        hashtags
-      }
       body{
         body
+      }
+      skills {
+        ... on ContentfulSkill {
+          name
+        }
       }
     }
     allContentfulResource {
