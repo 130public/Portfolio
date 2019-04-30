@@ -14,12 +14,6 @@ import Input from './input'
 import * as hitComps from './hits'
 import styles from './search.module.scss'
 
-//QUERY
-const updateAfter = 700;
-const createURL = state => `?query=${state.indices["Resource"].query}`;
-const searchStateToUrl = (props, searchState) =>
-  searchState ? `${props.location.pathname}${createURL(searchState)}` : '';
-const urlToSearchState = location => location.search.slice(7);
 
 //FORMATING
 const Results = connectStateResults(
@@ -37,32 +31,11 @@ class Search extends Component {
   constructor(props) {
     super(props);
     
-    this.state = {
-      searchState: urlToSearchState(props.location),
-    };
+
 
   }
 
-  componentWillReceiveProps(props) {
-
-    if (props.location !== this.props.location) {
-      this.setState({ searchState: urlToSearchState(props.location) });
-    }
-
-  }
-
-  onSearchStateChange = searchState => {
-
-    clearTimeout(this.debouncedSetState);
-    this.debouncedSetState = setTimeout(() => {
-      // navigate(
-      //   searchStateToUrl(this.props, searchState),
-      //   searchState
-      // );
-    }, updateAfter);
-    this.setState({ searchState });
-
-  }
+  
 
   render() {
     const { indices } = this.props
@@ -72,9 +45,6 @@ class Search extends Component {
         appId={process.env.ALGOLIA_APPID}
         apiKey={process.env.ALGOLIA_APIKEY}
         indexName={indices[0].name}
-        searchState={this.state.searchState}
-        onSearchStateChange={this.onSearchStateChange}
-        createURL={createURL}
       >
         <div>
           {indices.map(({ name, title, hitComp }) => (

@@ -25,7 +25,7 @@ class SearchIndex extends React.Component {
         </Helmet>
         <Hero title={data.contentfulPage.title} title={data.contentfulPage.title} style="blank" />
         <Main padTop='large' height='full' style="fun" offset={true} updatedAt={data.contentfulPage.updatedAt}>
-          <Search collapse indices={searchIndices} location={props.location} />
+          <Search collapse indices={searchIndices}  />
         </Main>
       </Page>
     )
