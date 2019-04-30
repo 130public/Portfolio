@@ -21,8 +21,6 @@ const searchStateToUrl = (props, searchState) =>
   searchState ? `${props.location.pathname}${createURL(searchState)}` : '';
 const urlToSearchState = location => location.search.slice(7);
 
-console.log(location.search.slice(7));
-
 //FORMATING
 const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) =>
@@ -50,6 +48,7 @@ class Search extends Component {
     if (props.location !== this.props.location) {
       this.setState({ searchState: urlToSearchState(props.location) });
     }
+
   }
 
   onSearchStateChange = searchState => {
@@ -67,7 +66,6 @@ class Search extends Component {
 
   render() {
     const { indices } = this.props
-
 
     return (
       <InstantSearch
