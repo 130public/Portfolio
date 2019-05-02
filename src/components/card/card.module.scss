@@ -70,7 +70,7 @@
   height: 64px;
 }
 .description{
-  @extend .truncate;
+  @extend .disguise;
   @extend .type--body1;
   -webkit-line-clamp: 4;
   height:96px;
@@ -79,10 +79,15 @@
   margin:0 0 12px;
   padding:0;
   @extend .type--body1;
-  height:48px;
+  height:72px;
   color:#999;
+  
 }
 a{
   color:$blue;
-  >*{color:black;}
+  >*{color:$blue;}
+  svg{
+    position: relative;
+    top:-1px;
+  }
 }

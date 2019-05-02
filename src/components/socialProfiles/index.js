@@ -20,9 +20,6 @@ export default class Markdown extends React.Component {
         <li><a target="_blank" href="https://github.com/jasonjgeiger">
           <FontAwesomeIcon size="2x" icon={faGithub} />
         </a></li>
-        <li><a target="_blank" href="https://flipboard.com/@developmental">
-          <FontAwesomeIcon size="2x" icon={faFlipboard} />
-        </a></li>
         <li><a target="_blank" href="https://medium.com/@jasonjgeiger">
           <FontAwesomeIcon size="2x" icon={faMedium} />
         </a></li>

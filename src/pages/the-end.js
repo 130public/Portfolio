@@ -18,7 +18,7 @@ class Files extends React.Component {
     
 
         return (
-            <Page className="fun">
+            <Page className="black">
                 <Helmet>
                     <title>Colophon of {data.site.siteMetadata.title}</title>
                     <base target="_blank" href={location.href} />
@@ -26,7 +26,7 @@ class Files extends React.Component {
                     <meta property="og:type" content="article" /> */}
                 </Helmet>
                 <Hero title={data.contentfulPage.title} title={data.contentfulPage.title} body={data.contentfulPage.content.body} style="blank" />
-                <Main padTop='large' height='full' style="fun" offset={true} updatedAt={data.contentfulPage.updatedAt}>
+                <Main padTop='large' height='full' style="black" offset={true} updatedAt={data.contentfulPage.updatedAt}>
                     <div className={styles.table}>
                         <table>
                             <thead>

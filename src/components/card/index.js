@@ -1,6 +1,11 @@
 import React from "react";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faExternalLinkAlt} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+library.add(faExternalLinkAlt);
 import Link from '../link'
-import styles from './card.module.scss'
+ import styles from './card.module.scss'
 
 
 class Card extends React.Component {
@@ -19,7 +24,8 @@ class Card extends React.Component {
 
     let CTA;
     if(hit.source !== undefined){
-      CTA = <a href={hit.source} target="_blank" title={hit.author}>Source</a>
+      CTA = <a href={hit.source} target="_blank" title={hit.author}>Go to source       <FontAwesomeIcon size="xs" icon={faExternalLinkAlt} />
+      </a>
     }else{
       CTA = <Link to={`/projects/${hit.slug}`}>Read More</Link>
     }

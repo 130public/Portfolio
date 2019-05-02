@@ -16,6 +16,17 @@ import indexStyles from './index.module.scss'
 let cx = classNames.bind([indexStyles,gridStyles]);
 
 class Index extends React.Component {
+  constructor(props) {
+    super(props);
+
+    
+  }
+  componentDidMount(prevProps){
+    //console.log(this.props.data.contentfulPages.skills);
+    {this.props.data.contentfulPage.resources.map((node) => {
+      console.log(node.id);
+    })}
+  }
   render() {
 
     const{data,location} = this.props;
@@ -23,6 +34,7 @@ class Index extends React.Component {
     let classes = cx([
       indexStyles.root, this.props.className,
     ]);
+    
 
     return (
       <Page>
@@ -35,8 +47,8 @@ class Index extends React.Component {
         <Hero style="fun" title={data.contentfulPage.title}>
           <p className={indexStyles.hashtags}>
             <b>Obligitory hashtags: </b><br/>
-            {data.contentfulPage.skills.map(function({name},index){
-              return <span key={index} className={indexStyles.hashtag}>#{name}</span>;
+            {data.contentfulPage.skills.map((node) => {
+              return <span key={node.id} className={indexStyles.hashtag}>#{node.name}</span>;
             })}
           </p>
           <p><i>Portfolio available by request.</i></p>
@@ -44,12 +56,12 @@ class Index extends React.Component {
         </Hero>
         <Main padTop='none' height='auto' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
           <p className={indexStyles.bio}><Markdown value={data.contentfulPage.body.body} /></p>
-          <h2>Recently read or watched</h2>
+          <h2>Recently read, watched, or listened</h2>
           <div className={gridStyles.hits}>
             <ul>
-                {data.allContentfulResource.edges.slice(0, 3).map(({ node }) => {
+                {data.contentfulPage.resources.map(( node ) => {
                   return (
-                    <li key={node.slug}>
+                    <li key={node.id}>
                       <Card hit={node} />
                     </li>
                   )
@@ -83,13 +95,13 @@ export const indexPageQuery = graphql`
       }
       skills {
         ... on ContentfulSkill {
+          id
           name
         }
       }
-    }
-    allContentfulResource {
-      edges {
-        node {
+      resources {
+        ... on ContentfulResource {
+          id 
           title
           description
           source
