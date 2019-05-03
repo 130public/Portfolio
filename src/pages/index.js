@@ -118,8 +118,8 @@ export const indexPageQuery = graphql`
               name
             }
           }
-          updatedAt
-          createdAt
+          updatedAt(formatString: "Y-MM-DD")
+          createdAt(formatString: "Y-MM-DD")
         }
       }
     }
