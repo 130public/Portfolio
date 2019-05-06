@@ -37,3 +37,6 @@
 .margin{
     margin-bottom: 4rem;
 }
+.fullHeight{
+    min-height: calc(100vh - 160px);
+}
