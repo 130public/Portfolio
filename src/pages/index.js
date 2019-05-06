@@ -40,7 +40,7 @@ class Index extends React.Component {
       <Page>
         <Helmet>
           <title>{data.contentfulPage.metaTitle} {data.site.siteMetadata.title}</title>
-          <base target="_blank" href={location.href} />
+          <base target="_blank" href={data.site.siteMetadata.url} />
           <meta name="description" content={data.contentfulPage.metaDescription} />
           <meta property="og:type" content="article" />
         </Helmet>
@@ -82,6 +82,7 @@ export const indexPageQuery = graphql`
     site {
       siteMetadata {
         title
+        url
       }
     }
     contentfulPage(slug: { eq: "index" }) {

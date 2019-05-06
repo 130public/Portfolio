@@ -1,9 +1,13 @@
 
 import React from 'react'
 import { graphql } from 'gatsby'
+import Helmet from 'react-helmet'
 import Page from '../components/page'
+import Hero from '../components/hero'
 import Main from '../components/main'
-import Link from '../components/link'
+import Grid from '../components/grid'
+import Card from "../components/card/note";
+import styles from "../components/search/search.module.scss";
 
 class NotesIndex extends React.Component {
   constructor(props){
@@ -15,19 +19,28 @@ class NotesIndex extends React.Component {
 
   render() {
     const{data} = this.props;
+    
     return (
       <Page>
-        <Main padTop='large' style="white" offset={true} updatedAt="NULL">
-          <ul>
+        <Helmet>
+          <title>{data.contentfulPage.metaTitle} {data.site.siteMetadata.title}</title>
+          <base target="_blank" href={data.site.siteMetadata.url} />
+          <meta name="description" content={data.contentfulPage.metaDescription} />
+          <meta property="og:type" content="article" />
+        </Helmet>
+        <Hero title={data.contentfulPage.title} body={data.contentfulPage.body.body} className="margin" />
+        <Main padTop='large' style="white" offset={true} updatedAt={data.allContentfulNote.edges[0].node.updatedAt}>
+          <Grid className={styles.hits}>
+              <ul>
               {data.allContentfulNote.edges.map(( {node} ) => {
                 return (
                   <li key={node.contentful_id}>
-                    <p>{node.title}<br/>Last updated: {node.updatedAt}</p>
-                    <Link to={`/notes/${node.slug}`}>Read More</Link>
+                    <Card hit={node} />
                   </li>
                 )
               })}
-          </ul>
+              </ul>
+          </Grid>
         </Main>
       </Page>
     )
@@ -37,6 +50,22 @@ export default NotesIndex
 
 export const notesPageQuery = graphql`
   query notesPageQuery {
+    site {
+      siteMetadata {
+        title
+        url
+      }
+    }
+    contentfulPage(slug: { eq: "notes" }) {
+      title,
+      slug,
+      metaTitle,
+      metaDescription,
+      body{
+        body
+      }
+      updatedAt(formatString: "Y-MM-DD")
+    }
     allContentfulNote {
       edges {
         node{

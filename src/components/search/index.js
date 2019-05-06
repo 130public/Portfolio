@@ -31,12 +31,7 @@ class Search extends Component {
 
   constructor(props) {
     super(props);
-    
-
-
   }
-
-  
 
   render() {
     const { indices } = this.props

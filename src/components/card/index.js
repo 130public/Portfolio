@@ -26,6 +26,8 @@ class Card extends React.Component {
     if(hit.source !== undefined){
       CTA = <a href={hit.source} target="_blank" title={hit.author}>Go to source       <FontAwesomeIcon size="xs" icon={faExternalLinkAlt} />
       </a>
+    }else if(hit.type == 'note'){
+      CTA = <Link to={`/notes/${hit.slug}`}>Read More</Link>
     }else{
       CTA = <Link to={`/projects/${hit.slug}`}>Read More</Link>
     }
@@ -55,15 +57,18 @@ class Card extends React.Component {
     }
     return (
       <figure className={styles.card} onClick={redirectToSource}>
+          {hit.thumbnail !== undefined &&
           <div className={styles.image}>
             <img src={hit.thumbnail.file.url} title={hit.thumbnail.title} alt={hit.thumbnail.description}/>
-          </div>
+          </div>}
           <figcaption className={styles.caption}>
             <h3 className={styles.heading}>{hit.title}</h3>
-            <p className={styles.description}>{description}</p>
-            <p className={styles.skills}>
-              Topics: <Skillslist data={hit.skills} count={3} />
-            </p>
+            {description !== undefined && <p className={styles.description}>{description}</p> }
+            {hit.skills !== undefined &&
+              <p className={styles.skills}>
+                Topics: <Skillslist data={hit.skills} count={3} />
+              </p>
+            }
             {CTA}
           </figcaption>
       </figure>

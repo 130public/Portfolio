@@ -4,11 +4,13 @@ import Helmet from 'react-helmet'
 import Page from '../page'
 import Hero from '../hero'
 import Main from '../main'
+import Card from '../card'
 import Markdown from '../markdown';
+import styles from './note.module.scss';
 
 class NoteTemplate extends React.Component {
   componentDidMount(){
-    console.log(this.props.data.contentfulNote);
+    console.log(this.props.data.contentfulNote);  
   }
   render() {
     
@@ -18,15 +20,14 @@ class NoteTemplate extends React.Component {
       <Page>
         <Helmet>
           <title>{data.contentfulNote.title} {data.site.siteMetadata.title}</title>
-          <base target="_blank" href={location.href} />
+          <meta name="robots" content="noindex" />
+          <base target="_blank" href={data.site.siteMetadata.url} />
         </Helmet>
         <Hero title={data.contentfulNote.title} className="none" />
         <Main padTop='large' style="default" offset={true} updatedAt={data.contentfulNote.updatedAt}>
-          Notes and excerpts from:
-          <pre>{JSON.stringify(data.contentfulNote.resources)}</pre>
-          <hr/>
           <Markdown value={data.contentfulNote.note.note} />
-          {/* <pre>{JSON.stringify(data.contentfulNote,null, 2)}</pre> */}
+          <h2>Notes and excerpts from:</h2>
+          <Card hit={data.contentfulNote.resources[0]} className={styles.simpleCard} />
       </Main>
     </Page>
     )
@@ -40,6 +41,7 @@ export const NotePageQuery = graphql`
     site {
       siteMetadata {
         title
+        url
       }
     }
     contentfulNote(slug: { eq: $slug }) {

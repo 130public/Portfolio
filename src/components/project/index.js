@@ -14,9 +14,8 @@ class ProjectTemplate extends React.Component {
       <Page>
         <Helmet>
           <title>{data.contentfulProject.title} {data.site.siteMetadata.title}</title>
-          <base target="_blank" href={location.href} />
-          {/* <meta name="description" content={data.contentfulPage.metaDescription} />
-          <meta property="og:type" content="article" /> */}
+          <base target="_blank" href={data.site.siteMetadata.url} />
+          <meta name="robots" content="noindex" />
         </Helmet>
         <Hero title={data.contentfulProject.title} className="none" />
         <Main padTop='large' style="alt" offset={true} updatedAt={data.contentfulProject.updatedAt}>
@@ -34,6 +33,7 @@ export const projectPageQuery = graphql`
     site {
       siteMetadata {
         title
+        url
       }
     }
     contentfulProject(slug: { eq: $slug }) {

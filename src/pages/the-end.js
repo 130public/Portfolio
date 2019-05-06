@@ -21,7 +21,7 @@ class Files extends React.Component {
             <Page className="black">
                 <Helmet>
                     <title>Colophon of {data.site.siteMetadata.title}</title>
-                    <base target="_blank" href={location.href} />
+                    <base target="_blank" href={data.site.siteMetadata.url} />
                     {/* <meta name="description" content={data.contentfulPage.metaDescription} />
                     <meta property="og:type" content="article" /> */}
                 </Helmet>
@@ -61,6 +61,7 @@ export const filesPageQuery = graphql`
     site {
         siteMetadata {
             title
+            url
         }
     }
     contentfulPage(slug: { eq: "colophon" }) {
