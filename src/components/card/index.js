@@ -63,7 +63,7 @@ class Card extends React.Component {
           </div>}
           <figcaption className={styles.caption}>
             <h3 className={styles.heading}>{hit.title}</h3>
-            {description !== undefined && <p className={styles.description}>{description}</p> }
+            {description !== undefined && <p title={description} className={styles.description}>{description}</p> }
             {hit.skills !== undefined &&
               <p className={styles.skills}>
                 Topics: <Skillslist data={hit.skills} count={3} />
