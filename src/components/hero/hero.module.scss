@@ -31,7 +31,7 @@
     @extend .type--headline3;
     @extend .type--style-uppercase;
 }
-.body{
+.body, .body p{
     @extend .type--headline6;
 }
 .margin{

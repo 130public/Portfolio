@@ -24,17 +24,17 @@ class Card extends React.Component {
 
     let CTA;
     if(hit.source !== undefined){
-      CTA = <a href={hit.source} target="_blank" title={hit.author}>Go to source       <FontAwesomeIcon size="xs" icon={faExternalLinkAlt} />
+      CTA = <a href={hit.source} aria-label={`External link to ${hit.title}`}>Go to source <FontAwesomeIcon size="xs" icon={faExternalLinkAlt} />
       </a>
     }else if(hit.type == 'note'){
-      CTA = <Link to={`/notes/${hit.slug}`}>Read More</Link>
+      CTA = <Link to={`/notes/${hit.slug}`} aria-label={`Read more about ${hit.title}`}>Read More</Link>
     }else{
-      CTA = <Link to={`/projects/${hit.slug}`}>Read More</Link>
+      CTA = <Link to={`/projects/${hit.slug}`} aria-label={`Read more about ${hit.title}`}>Read More</Link>
     }
 
     function redirectToSource(){
-      console.log(hit.source);
-      window.open(hit.source,"_blank");
+      //console.log(hit.source);
+      window.open(hit.source,"_self");
     }
     const Skillslist = props => {
       const {data,count} = props;
