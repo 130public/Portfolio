@@ -26,8 +26,12 @@ class NoteTemplate extends React.Component {
         <Hero title={data.contentfulNote.title} className="none" />
         <Main padTop='large' style="default" offset={true} updatedAt={data.contentfulNote.updatedAt}>
           <Markdown value={data.contentfulNote.note.note} />
-          <h2>Notes and excerpts from:</h2>
-          <Card hit={data.contentfulNote.resources[0]} className={styles.simpleCard} />
+          {data.contentfulNote.resources !== null &&
+            <div>
+              <h2>Notes and excerpts from:</h2>
+              <Card hit={data.contentfulNote.resources[0]} className={styles.simpleCard} />
+            </div>
+          }
       </Main>
     </Page>
     )
