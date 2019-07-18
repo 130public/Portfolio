@@ -28,7 +28,6 @@ module.exports = {
   plugins: [
     'gatsby-transformer-remark',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
@@ -57,7 +56,7 @@ module.exports = {
         apiKey: `${process.env.ALGOLIA_APIKEY}`,
         //indexName: process.env.ALGOLIA_INDEXNAME, // for all queries
         queries,
-        chunkSize: 10000, // default: 1000
+        chunkSize: 100000, // default: 1000
       },
     },
     {

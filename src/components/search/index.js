@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { navigate } from 'gatsby'
 import PropTypes from 'prop-types';
-import qs from 'qs';
 import {
   InstantSearch,
   Index,
