@@ -7,7 +7,6 @@ const PageIndexQuery = `{
         component
         path
         componentChunkName
-        jsonName
         internal {
           type
           contentDigest
