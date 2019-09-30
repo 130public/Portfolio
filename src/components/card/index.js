@@ -20,8 +20,6 @@ class Card extends React.Component {
     } else{
       description = "";
     }
-     
-    console.log(hit);
 
     let CTA;
     if(hit.source !== undefined){
