@@ -9,7 +9,7 @@ import {
 
 import Grid from '../grid'
 import Input from './input'
-import Algolia from './algolia'
+import AlgoliaLogo from './algoliaLogo'
 import * as hitComps from './hits'
 import styles from './search.module.scss'
 
@@ -59,7 +59,7 @@ class Search extends Component {
             </Index>
           ))}
         </div>
-        <Algolia />
+        <AlgoliaLogo />
       </InstantSearch>
     )
   }

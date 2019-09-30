@@ -22,11 +22,15 @@ const ResourceIndexQuery = `{
       node {
         title
         description
+        author
         source
         thumbnail{
           file{
             url
             fileName
+          }
+          fluid(quality: 85, maxWidth: 320) {
+            src
           }
           title
           description
@@ -52,9 +56,8 @@ const ProjectIndexQuery = `{
             description
           }
           thumbnail{
-            file{
-              url
-              fileName
+            fluid(quality: 10, maxWidth: 320) {
+              src
             }
             title
             description

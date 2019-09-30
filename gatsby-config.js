@@ -23,7 +23,7 @@ module.exports = {
   pathPrefix: '/gatsby-contentful-starter',
   siteMetadata: {
     title: ` - The portfolio of Jason J Geiger`,
-    url: `https://130public.net/`
+    url: `/`
   },
   plugins: [
     'gatsby-transformer-remark',

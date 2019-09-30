@@ -105,11 +105,15 @@ export const indexPageQuery = graphql`
           id 
           title
           description
+          author
           source
           thumbnail{
             file{
               url
               fileName
+            }
+            fluid(quality: 85, maxWidth: 320) {
+              src
             }
             title
             description

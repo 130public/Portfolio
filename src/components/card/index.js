@@ -21,6 +21,7 @@ class Card extends React.Component {
       description = "";
     }
      
+    console.log(hit);
 
     let CTA;
     if(hit.source !== undefined){
@@ -59,7 +60,7 @@ class Card extends React.Component {
       <figure className={styles.card} onClick={redirectToSource}>
           {hit.thumbnail !== undefined &&
           <div className={styles.image}>
-            <img src={hit.thumbnail.file.url} title={hit.thumbnail.title} alt={hit.thumbnail.description}/>
+            <img src={hit.thumbnail.fluid.src} title={hit.thumbnail.title} alt={hit.thumbnail.description}/>
           </div>}
           <figcaption className={styles.caption}>
             <h3 className={styles.heading}>{hit.title}</h3>
