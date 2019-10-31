@@ -7,11 +7,30 @@ let cx = classNames.bind(linkStyles);
 
 export default class Link extends React.Component {
   render(){
+    const {hit,to} = this.props;
     let className = cx({
       [linkStyles.link]: !this.props.className,
       [this.props.className]: this.props.className,
       [linkStyles.button]: this.props.type == 'button'
     });
-    return <GatsbyLink className={className} to={this.props.to}>{this.props.children}</GatsbyLink>;
+    
+    return <>
+      { to !== undefined &&
+        <GatsbyLink 
+        className={className}
+        to={to}
+        >   
+          {this.props.children}
+        </GatsbyLink>
+      }
+      { hit !== undefined &&
+        <a 
+        className={className}
+        href={hit.source} 
+        >
+          {this.props.children}
+        </a>
+      }
+    </>;
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import SEO from '../components/seo'
 import Page from '../components/page'
 import Hero from '../components/hero'
 import Main from '../components/main'
@@ -15,13 +15,10 @@ class ProjectsIndex extends React.Component {
 
     return (
       <Page>
-        <Helmet>
-          <title>{data.contentfulPage.metaTitle} {data.site.siteMetadata.title}</title>
-          <base target="_blank" href={data.site.siteMetadata.url} />
-          <meta name="robots" content="noindex" />
-          <meta name="description" content={data.contentfulPage.metaDescription} />
-          <meta property="og:type" content="article" />
-        </Helmet>
+        <SEO 
+          title={data.contentfulPage.metaTitle} 
+          description={data.contentfulPage.metaDescription}
+        />
         <Hero title={data.contentfulPage.title} body="" className="margin" />
         <Main padTop='large' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
           <Search collapse indices={searchIndices} />

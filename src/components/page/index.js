@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from 'classnames/bind';
+import SkipToContent from '../skipToContent'
 import Header from '../header'
 import Footer from '../footer'
 import styles from './page.module.scss'
@@ -11,8 +12,10 @@ export default class Page extends React.Component {
     let classes = cx([
       styles.root, this.props.className, 'typography'
     ]);
+    console.log(this.props.site);
     return (
       <div className={classes}>
+        <SkipToContent/>
         <Header />
         {this.props.children}
         <Footer />

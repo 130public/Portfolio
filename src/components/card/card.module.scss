@@ -4,15 +4,21 @@
   padding:0;
   color:black;
   border:2px solid black;
-  display:flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  &:hover{
+  display:block;
+  figure{
+    margin:0;
+    padding:0;
+  }
+  &:hover,&:focus{
+    outline:none;
     cursor: pointer;
     border-color:$blue;
     .heading,.description{color:$blue;}
     .image {background: $blue;border-color: $blue;}
     .skills{color:$blue;}
+    .cta{
+      border-bottom:2px solid $blue;
+    }
   }
 }
 .alt{
@@ -81,12 +87,11 @@
   padding:0;
   @extend .type--body1;
   height:72px;
-  color:#999;
-  
+  color:#666;
 }
-a{
-  color:$blue;
-  >*{color:$blue;}
+.card .cta{
+  color:black;
+  >*{color:black;}
   svg{
     position: relative;
     top:-1px;

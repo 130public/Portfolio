@@ -12,13 +12,11 @@ export default class Brand extends React.Component {
     ]);
     const {to} = this.props;
     return (
-      <div className={className}>
-        <Link className={styles.link} to={to}>
+      <Link className={className} to={to}>
           <span className={styles.left}>{this.props.left}</span>
           <span className={styles.space}>&nbsp;</span>
           <span className={styles.right}>{this.props.right}</span>
-        </Link>
-      </div>
+      </Link>
     );
   }
 }

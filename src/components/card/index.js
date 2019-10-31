@@ -9,7 +9,6 @@ import Link from '../link'
 
 
 class Card extends React.Component {
-
   render(){
     const { hit, i } = this.props;
     let description;
@@ -21,20 +20,29 @@ class Card extends React.Component {
       description = "";
     }
 
-    let CTA;
-    if(hit.source !== undefined){
-      CTA = <a href={hit.source} aria-label={`External link to ${hit.title}`}>Go to source <FontAwesomeIcon size="xs" icon={faExternalLinkAlt} />
-      </a>
-    }else if(hit.type == 'note'){
-      CTA = <Link to={`/notes/${hit.slug}`} aria-label={`Read more about ${hit.title}`}>Read More</Link>
-    }else{
-      CTA = <Link to={`/projects/${hit.slug}`} aria-label={`Read more about ${hit.title}`}>Read More</Link>
-    }
+    // let CTA;
+    // if(hit.source !== undefined){
+    //   CTA = <a tabIndex="-1" href={hit.source} aria-label={`External link to ${hit.title}`}>Go to source <FontAwesomeIcon size="xs" icon={faExternalLinkAlt} />
+    //   </a>
+    // }else if(hit.type == 'note'){
+    //   CTA = <Link tabIndex="-1" to={`/notes/${hit.slug}`} aria-label={`Read more about ${hit.title}`}>Read More</Link>
+    // }else{
+    //   CTA = <Link tabIndex="-1" to={`/projects/${hit.slug}`} aria-label={`Read more about ${hit.title}`}>Read More</Link>
+    // }
 
-    function redirectToSource(){
+    const redirectToSource = () => {
       //console.log(hit.source);
       window.open(hit.source,"_self");
     }
+    const _handleKeyDown = (event) => {
+      if(event.keyCode == 13 || event.keyCode == 32){
+        redirectToSource();
+      }
+    }
+    const _handleClick = (event) => {
+      redirectToSource();
+    }
+    
     const Skillslist = props => {
       const {data,count} = props;
       var skillString ="";
@@ -51,11 +59,11 @@ class Card extends React.Component {
           skillString += name+ending;
         })
       }
-
       return skillString;
     }
     return (
-      <figure className={styles.card} onClick={redirectToSource}>
+      <Link hit={hit} className={styles.card}>
+        <figure>
           {hit.thumbnail !== undefined &&
           <div className={styles.image}>
             <img src={hit.thumbnail.fluid.src} title={hit.thumbnail.title} alt={hit.thumbnail.description}/>
@@ -68,9 +76,12 @@ class Card extends React.Component {
                 Topics: <Skillslist data={hit.skills} count={3} />
               </p>
             }
-            {CTA}
+            {hit.source !== undefined &&
+              <span class={styles.cta}>External link <FontAwesomeIcon size="xs" icon={faExternalLinkAlt} /></span>
+            }
           </figcaption>
-      </figure>
+        </figure>
+      </Link>
     );
   }
 }

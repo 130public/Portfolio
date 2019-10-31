@@ -19,7 +19,7 @@ export default class Main extends React.Component {
       styles.maxWidth
     ]);
     return (
-      <main className={mainClasses}>
+      <main id="main" className={mainClasses}>
         <div className={innerClasses}>
           {this.props.children}
           <pre>Last Updated: {this.props.updatedAt}</pre>

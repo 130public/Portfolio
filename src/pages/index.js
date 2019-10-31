@@ -1,13 +1,12 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 import classNames from 'classnames/bind'
-import Helmet from 'react-helmet'
+import SEO from '../components/seo'
 import Page from '../components/page'
 import Main from '../components/main'
 import Hero from '../components/hero'
 import Link from '../components/link'
-import Card from "../components/card";
-import Markdown from '../components/markdown';
+import Card from "../components/card"
+import Markdown from '../components/markdown'
 import SocialProfiles from "../components/socialProfiles";
 //
 import gridStyles from '../components/search/search.module.scss'
@@ -34,16 +33,12 @@ class Index extends React.Component {
     let classes = cx([
       indexStyles.root, this.props.className,
     ]);
-    
-
     return (
       <Page>
-        <Helmet>
-          <title>{data.contentfulPage.metaTitle} {data.site.siteMetadata.title}</title>
-          <base target="_blank" href={data.site.siteMetadata.url} />
-          <meta name="description" content={data.contentfulPage.metaDescription} />
-          <meta property="og:type" content="article" />
-        </Helmet>
+        <SEO 
+          title={data.contentfulPage.metaTitle} 
+          description={data.contentfulPage.metaDescription}
+        />
         <Hero style="fun" title={data.contentfulPage.title}>
           <p className={indexStyles.hashtags}>
             <b>Obligitory hashtags: </b><br/>

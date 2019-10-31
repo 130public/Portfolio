@@ -16,7 +16,8 @@
     border:2px solid black;
     background:white;
   }
-  &:hover{
+  &:hover,&:focus{
+    outline: none;
     .left{
       color:white;
       background:$blue;
@@ -45,7 +46,8 @@
     border:2px solid black;
     background:black;
   }
-  &:hover{
+  &:hover,&:focus{
+    outline: none;
     .left{
       color:$blue;
       background:white;
@@ -70,7 +72,8 @@
     border:2px solid white;
     background:white;
   }
-  &:hover{
+  &:hover,&:focus{
+    outline: none;
     .left{
       color:$blue;
       border-color:$blue;
@@ -87,7 +90,8 @@
 /*
 Attributes
 */
-.link,.link:hover{
+.link,.link:hover,.link:focus{
+  outline: none;
   height:1.5rem;
   display: block;
   text-decoration: none;
