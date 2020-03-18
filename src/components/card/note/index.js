@@ -14,7 +14,6 @@ class Card extends React.Component {
     CTA = <Link to={uri}>Read More</Link>
     
     function redirectToSource(){
-      console.log(uri);
       window.open(uri,"_self");
     }
 

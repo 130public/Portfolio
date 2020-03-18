@@ -12,7 +12,6 @@ export default class Page extends React.Component {
     let classes = cx([
       styles.root, this.props.className, 'typography'
     ]);
-    console.log(this.props.site);
     return (
       <div className={classes}>
         <SkipToContent/>

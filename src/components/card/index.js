@@ -31,7 +31,6 @@ class Card extends React.Component {
     // }
 
     const redirectToSource = () => {
-      //console.log(hit.source);
       window.open(hit.source,"_self");
     }
     const _handleKeyDown = (event) => {

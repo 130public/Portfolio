@@ -6,7 +6,6 @@ class ProjectCard extends React.Component {
 
   render(){
     const { hit } = this.props;
-    console.log(hit);
     return (
       <figure className={styles.card}>
         <div className={styles.image}>

@@ -8,6 +8,7 @@ import Link from '../components/link'
 import Card from "../components/card"
 import Markdown from '../components/markdown'
 import SocialProfiles from "../components/socialProfiles";
+import { graphql } from 'gatsby'
 //
 import gridStyles from '../components/search/search.module.scss'
 import indexStyles from './index.module.scss'
@@ -19,12 +20,6 @@ class Index extends React.Component {
     super(props);
 
     
-  }
-  componentDidMount(prevProps){
-    //console.log(this.props.data.contentfulPages.skills);
-    {this.props.data.contentfulPage.resources.map((node) => {
-      console.log(node.id);
-    })}
   }
   render() {
 

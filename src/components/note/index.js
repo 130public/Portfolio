@@ -9,9 +9,6 @@ import Markdown from '../markdown';
 import styles from './note.module.scss';
 
 class NoteTemplate extends React.Component {
-  componentDidMount(){
-    console.log(this.props.data.contentfulNote);  
-  }
   render() {
     
     const{data,location} = this.props;
