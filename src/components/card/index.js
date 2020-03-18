@@ -77,7 +77,7 @@ class Card extends React.Component {
               </p>
             }
             {hit.source !== undefined &&
-              <span class={styles.cta}>External link <FontAwesomeIcon size="xs" icon={faExternalLinkAlt} /></span>
+              <span className={styles.cta}>External link <FontAwesomeIcon size="xs" icon={faExternalLinkAlt} /></span>
             }
           </figcaption>
         </figure>
