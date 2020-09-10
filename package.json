@@ -51,7 +51,7 @@
     "inquirer": "^6.5.0",
     "prettier": "^1.18.2",
     "rimraf": "^2.6.3",
-    "yargs-parser": "^11.0.0"
+    "yargs-parser": "^13.1.2"
   },
   "homepage": "https://github.com/jasonjgeiger/portfolio#readme",
   "keywords": [
