@@ -1,21 +1,35 @@
 import * as React from "react"
 import styled from 'styled-components';
-import GlobalStyles from '../GlobalStyles/GlobalStyles'
+import {GlobalFonts,GlobalVars,GlobalStyles} from '../GlobalStyles/GlobalStyles'
+import SEO from '../Seo/Seo'
+import SkipToContent from '../SkipToContent/SkipToContent'
+import Header from '../Header/Header'
 
 // styles
 const Layout = styled.div`
-  color: #232129;
-  padding: 96;
-  background:green;
-  font-family: -apple-system, Roboto, sans-serif, serif;
+  color:var(--text-primary);
+  font-family:"GT Pressura", -apple-system, Arial, sans-serif;
 `
 
 const LayoutComponent = ({children}) => {
   return (
     <>
+      <GlobalFonts />
+      <GlobalVars />
       <GlobalStyles />
+      <SEO
+        title="Layout"
+        description=""
+        image=""
+        pathname=""
+        article=""
+      />
       <Layout>
-        {children}
+        <SkipToContent href="#main"/>
+        <Header/>
+        <main id="main">
+          {children}
+        </main>
       </Layout>
     </>
   )

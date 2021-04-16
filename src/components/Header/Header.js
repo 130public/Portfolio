@@ -1,0 +1,34 @@
+import * as React from "react"
+import styled from 'styled-components';
+import Brand from '../Brand/Brand'
+import Navigation from '../Navigation/Navigation'
+
+// styles
+const Header = styled.header`
+  position: relative;
+  padding-top:var(--gutter-md);
+  padding-right:var(--gutter-md);
+  padding-bottom:calc(var(--gutter-md) * 0.8);
+  padding-left:var(--gutter-md);
+  @extend .u-gutters;
+  @extend .u-spacers--inside;
+  background:white;
+  display:flex;
+  flex-flow:row wrap;
+  z-index:1;
+  @media screen and (max-width:400px){
+    padding-top:1.25rem;
+    padding-left:1rem;
+    padding-right:1rem;
+  }
+`;
+const HeaderComponent = (props) => {
+  return (
+    <Header {...props}>
+      <Brand to="/" left="Project" right="Name"/>
+      <Navigation />
+    </Header>
+  )
+}
+
+export default HeaderComponent

@@ -1,38 +1,49 @@
 import * as React from "react"
+import styled from 'styled-components';
 import Layout from "../components/Layout/Layout"
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
+import Hero from "../components/Hero/Hero"
+import Image from '../components/Image/Image'
+import Grid from '../components/Grid/Grid'
+import Card from '../components/Card/Card'
+
+const Span = styled.span`
+  display:inline-block;
+  padding-right:var(--gutter-xs);
+`;
+
+const gridSource = [
+  {
+    id:0,
+    itemKey:"item1",
+    name:"card 1"
+  },
+  {
+    id:1,
+    itemKey:"item2",
+    name:"card 2"
+  }
+]
+
+// const Card = (props) => {
+//   return (
+//     <div {...props}>I am card {props.name}</div>
+//   );
+// }
+const gridItems = gridSource.map((item) => { return <Card {...item}/> })
 
 // markup
 const IndexPage = () => {
   return (
     <Layout>
-      <main style={pageStyles}>
-        <title>Home Page</title>
-        <h1 style={headingStyles}>
-          Congratulations
-        </h1>
-        <p style={paragraphStyles}>
-          Edit to see this page update in real-time.{" "}
+      <main>
+        <Hero className="fun" title="Page title" body="">
+          <p><strong>Obligitory hashtags:</strong></p>
+          <p><Span>#human centric design</Span> <Span>#user advocacy</Span> <Span>#experience strategy</Span> <Span>#user research</Span> <Span>#design thinking</Span> <Span>#ideation</Span> <Span>#prototyping</Span> <Span>#leadership</Span> <Span>#collaboration</Span> <Span>#learning psychology</Span> <Span>#information architecture</Span> <Span>#marketing</Span> <Span>#sketch</Span> <Span>#invision</Span> <Span>#nodejs</Span> <Span>#react</Span> <Span>#sass</Span></p>
+          <Image variant="grayscale" src="http://via.placeholder.com/100x100/0000FF/808080" />
+        </Hero>
+        <p>
         </p>
+        <Grid items={gridItems} />
       </main>
     </Layout>
   )
