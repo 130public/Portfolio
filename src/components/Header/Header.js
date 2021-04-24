@@ -16,11 +16,7 @@ const Header = styled.header`
   display:flex;
   flex-flow:row wrap;
   z-index:1;
-  @media screen and (max-width:400px){
-    padding-top:1.25rem;
-    padding-left:1rem;
-    padding-right:1rem;
-  }
+  
 `;
 const HeaderComponent = (props) => {
   return (

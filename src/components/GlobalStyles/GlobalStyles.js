@@ -36,13 +36,23 @@ export const GlobalVars = createGlobalStyle`
   :root {
     --theme-color-primary:#227bf9;
     --theme-color-secondary:#6219ee;
+    --theme-color-tertiary:#666666;
     --theme-color-text:#212121;
     --theme-bg-color:#f1f1f1;
     --theme-font-primary:"GT Pressura", -apple-system, Arial, sans-serif;
     --theme-font-secondary:"GT Pressura Mono", 'Courier New', Courier, monospace;
     
+    
+
     --screen-md: 400px;
     --screen-lg: 521px;
+
+    --base-size:16;
+    --font-xs: calc(var(--base-size) * 0.875); //14
+    --font-sm: calc(var(--base-size) * 0.0); //16
+    --font-md: calc(var(--base-size) * 1.25); //20
+    --font-lg: calc(var(--base-size) * 1.5); //24
+    --font-xl: calc(var(--base-size) * 2.0); //32
 
     --gutter-xs:0.5rem;
     --gutter-sm:1rem;
@@ -58,14 +68,14 @@ export const GlobalVars = createGlobalStyle`
 export const GlobalStyles = createGlobalStyle`
   html,body{margin:0;padding:0;}
   body {
-    font-size: 14px;
+    /* font-size: var(--font-sm)rem; */
     line-height: 1.5;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
   }
   @media screen and (min-width: --screen-lg){
     .app,body{
-      font-size: 16px;
+      /* font-size: var(--font-sm)rem; */
     }
   }
   a{

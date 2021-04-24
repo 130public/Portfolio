@@ -5,7 +5,12 @@ import Hero from "../components/Hero/Hero"
 import Image from '../components/Image/Image'
 import Grid from '../components/Grid/Grid'
 import Card from '../components/Card/Card'
+import Resources from "../components/Resources/Resources";
 
+const Main = styled.main`
+  padding-left:var(--gutter-md);
+  padding-right:var(--gutter-md);
+`
 const Span = styled.span`
   display:inline-block;
   padding-right:var(--gutter-xs);
@@ -35,7 +40,7 @@ const gridItems = gridSource.map((item) => { return <Card {...item}/> })
 const IndexPage = () => {
   return (
     <Layout>
-      <main>
+      <Main>
         <Hero className="fun" title="Page title" body="">
           <p><strong>Obligitory hashtags:</strong></p>
           <p><Span>#human centric design</Span> <Span>#user advocacy</Span> <Span>#experience strategy</Span> <Span>#user research</Span> <Span>#design thinking</Span> <Span>#ideation</Span> <Span>#prototyping</Span> <Span>#leadership</Span> <Span>#collaboration</Span> <Span>#learning psychology</Span> <Span>#information architecture</Span> <Span>#marketing</Span> <Span>#sketch</Span> <Span>#invision</Span> <Span>#nodejs</Span> <Span>#react</Span> <Span>#sass</Span></p>
@@ -43,8 +48,9 @@ const IndexPage = () => {
         </Hero>
         <p>
         </p>
-        <Grid items={gridItems} />
-      </main>
+        {/* <Grid items={gridItems} /> */}
+        <Resources hitsPerPage={4} colWidth="20%" />
+      </Main>
     </Layout>
   )
 }

@@ -3,9 +3,7 @@ import styled from 'styled-components';
 
 const Hero = styled.div.attrs((props) => ({}))`
   position:relative;
-  margin-left:var(--gutter-md);
-  margin-right:var(--gutter-md);
-  margin-bottom: var(--gutter-lg);
+  margin-bottom: var(--gutter-md);
   padding-top:var(--gutter-lg);
   padding-right:var(--gutter-lg);
   padding-bottom:var(--gutter-lg);
