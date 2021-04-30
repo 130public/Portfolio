@@ -21,7 +21,7 @@ const Header = styled.header`
 const HeaderComponent = (props) => {
   return (
     <Header {...props}>
-      <Brand to="/" left="Project" right="Name"/>
+      <Brand to="/" left="ONE THIRTY" right="Public"/>
       <Navigation />
     </Header>
   )

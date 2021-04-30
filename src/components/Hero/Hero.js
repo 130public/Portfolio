@@ -3,22 +3,24 @@ import styled from 'styled-components';
 
 const Hero = styled.div.attrs((props) => ({}))`
   position:relative;
-  margin-bottom: var(--gutter-md);
+  margin-top: var(--gutter-md);
+  margin-bottom: var(--gutter-sm);
   padding-top:var(--gutter-lg);
   padding-right:var(--gutter-lg);
   padding-bottom:var(--gutter-lg);
   padding-left:var(--gutter-lg);
   &.default{
     color:white;
-    background:black;
-    a{color:#FFF; text-decoration: underline;}
+    background:var(--text-primary);
+    a{color:var(--text-secondary); text-decoration: underline;}
   }
   &.fun{
       color:white;
       background-image:linear-gradient(145deg, var(--theme-color-primary), var(--theme-color-secondary));
   }
   &.blank{
-      background:none;
+      color:var(--text-primary);
+      border:2px solid white;
   }
   h1{
     font-size:3rem;

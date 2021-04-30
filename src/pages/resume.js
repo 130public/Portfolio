@@ -9,15 +9,16 @@ const Main = styled.main`
 `
 
 // markup
-const NotFoundPage = (props) => {
+const ResumePage = (props) => {
   
   return (
     <Layout location={props.location}>
       <Main>
-        <Hero className="default" title="404" body="😔 Sorry. we couldn’t find what you were looking for."/>
+        {JSON.stringify(props)}
+        <Hero className="default" title="Resume" body=""/>
       </Main>
     </Layout>
   )
 }
 
-export default NotFoundPage
+export default ResumePage

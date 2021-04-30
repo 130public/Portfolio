@@ -86,6 +86,9 @@ const NavigationComponent = (props) => {
             <Link to="/resume/">Resume</Link>
           </Item>
           <Item>
+            <Link to="/projects/">Projects</Link>
+          </Item>
+          <Item>
             <Link to="/resources/">Resources</Link>
           </Item>
           <Item>

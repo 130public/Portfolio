@@ -18,26 +18,25 @@ export const GridItem = styled.li`
     );
   };
 
-  const onRenderGrid = ({ items = {}, className }) => {
-    return (
-      <ul className={'FlexGrid ' + className}>
-        {Object.keys(items).map((itemKey) => onRenderGridItem({ item: items[itemKey], key: itemKey }))}
-      </ul>
-    );
-  };
-
-  const StyledGrid = styled(onRenderGrid)`
+  const Grid = styled.ul`
+    margin:0;
+    padding:0;
     display: grid;
     width: 100%;
     flex-flow: row wrap;
-    margin-bottom: 24px;
-    grid-template-columns: ${(props) => `repeat(auto-fill, minmax(${props.minColWidth || '30%'}, 1fr)) `};
+    margin-bottom: var(--gutter-sm);
+    grid-template-columns: ${(props) => `repeat(auto-fill, minmax(${props.minColWidth || '25%'}, 1fr)) `};
     grid-auto-rows: 1fr;
-    grid-gap: 16px;
+    grid-gap: var(--gutter-sm);
   `;
 
 const GridComponent = (props) => {
-  return onRenderGrid(props);
+  const {items} = props;
+  return (
+    <Grid>
+      {Object.keys(items).map((itemKey) => onRenderGridItem({ item: items[itemKey], key: itemKey }))}
+    </Grid>
+  )
 }
 
 export default GridComponent;

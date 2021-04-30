@@ -47,12 +47,12 @@ export const GlobalVars = createGlobalStyle`
     --screen-md: 400px;
     --screen-lg: 521px;
 
-    --base-size:16;
-    --font-xs: calc(var(--base-size) * 0.875); //14
-    --font-sm: calc(var(--base-size) * 0.0); //16
-    --font-md: calc(var(--base-size) * 1.25); //20
-    --font-lg: calc(var(--base-size) * 1.5); //24
-    --font-xl: calc(var(--base-size) * 2.0); //32
+    --base-size:16px;
+    --font-xs: 0.875rem;
+    --font-sm: 1.0rem;
+    --font-md: 1.25rem;
+    --font-lg: 1.5rem;
+    --font-xl: 2.0rem;
 
     --gutter-xs:0.5rem;
     --gutter-sm:1rem;
@@ -68,10 +68,11 @@ export const GlobalVars = createGlobalStyle`
 export const GlobalStyles = createGlobalStyle`
   html,body{margin:0;padding:0;}
   body {
-    /* font-size: var(--font-sm)rem; */
+    font-size:var(--base-size);
     line-height: 1.5;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    background:var(--theme-bg-color);
   }
   @media screen and (min-width: --screen-lg){
     .app,body{
@@ -85,6 +86,10 @@ export const GlobalStyles = createGlobalStyle`
   p>a{
     box-shadow: inset 0 -0.0625em 0 0 black;
   }
+  pre{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
   .button{
     display: inline-block;
     padding:4px;
@@ -94,5 +99,15 @@ export const GlobalStyles = createGlobalStyle`
   .u-gutters{
     padding-left: $universal-gutter;
     padding-right: $universal-gutter;
+  }
+  .sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
   }
 `;

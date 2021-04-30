@@ -1,55 +1,33 @@
 import * as React from "react"
-import styled from 'styled-components';
+import styled from 'styled-components'
 import Layout from "../components/Layout/Layout"
 import Hero from "../components/Hero/Hero"
 import Image from '../components/Image/Image'
-import Grid from '../components/Grid/Grid'
-import Card from '../components/Card/Card'
+import Hash from  '../components/Hash/Hash'
+import SocialProfiles from '../components/SocialProfiles/SocialProfiles'
 import Resources from "../components/Resources/Resources";
 
 const Main = styled.main`
   padding-left:var(--gutter-md);
   padding-right:var(--gutter-md);
 `
-const Span = styled.span`
-  display:inline-block;
-  padding-right:var(--gutter-xs);
-`;
-
-const gridSource = [
-  {
-    id:0,
-    itemKey:"item1",
-    name:"card 1"
-  },
-  {
-    id:1,
-    itemKey:"item2",
-    name:"card 2"
-  }
-]
-
-// const Card = (props) => {
-//   return (
-//     <div {...props}>I am card {props.name}</div>
-//   );
-// }
-const gridItems = gridSource.map((item) => { return <Card {...item}/> })
 
 // markup
-const IndexPage = () => {
+const IndexPage = (props) => {
   return (
-    <Layout>
+    <Layout location={props.location}>
       <Main>
-        <Hero className="fun" title="Page title" body="">
+        <Hero className="fun" title="" body="">
+        <h1><Image variant="grayscale" src="https://avatars.githubusercontent.com/u/448523?v=4" width="36px" /> Jason J Geiger</h1>
           <p><strong>Obligitory hashtags:</strong></p>
-          <p><Span>#human centric design</Span> <Span>#user advocacy</Span> <Span>#experience strategy</Span> <Span>#user research</Span> <Span>#design thinking</Span> <Span>#ideation</Span> <Span>#prototyping</Span> <Span>#leadership</Span> <Span>#collaboration</Span> <Span>#learning psychology</Span> <Span>#information architecture</Span> <Span>#marketing</Span> <Span>#sketch</Span> <Span>#invision</Span> <Span>#nodejs</Span> <Span>#react</Span> <Span>#sass</Span></p>
-          <Image variant="grayscale" src="http://via.placeholder.com/100x100/0000FF/808080" />
+          <p>
+            <Hash string="human centric design" /><Hash string="user advocacy" /> <Hash string="experience strategy" /> <Hash string="user research" /> <Hash string="design thinking" /> <Hash string="ideation" /> <Hash string="prototyping" /> <Hash string="leadership" /> <Hash string="collaboration" /> <Hash string="learning psychology" /> <Hash string="information architecture" /> <Hash string="marketing" /> <Hash string="sketch" /> <Hash string="invision" /> <Hash string="nodejs" /> <Hash string="react" /> <Hash string="sass" />
+          </p>
+          <p><i>Portfolio available by request.</i></p>
+          <SocialProfiles/>
         </Hero>
-        <p>
-        </p>
-        {/* <Grid items={gridItems} /> */}
-        <Resources hitsPerPage={4} colWidth="20%" />
+        <h2>Recently read, watched, or listened</h2>
+        <Resources hitsPerPage={12} colWidth="20%" />
       </Main>
     </Layout>
   )

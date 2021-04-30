@@ -11,7 +11,7 @@ const Layout = styled.div`
   font-family:"GT Pressura", -apple-system, Arial, sans-serif;
 `
 
-const LayoutComponent = ({children}) => {
+const LayoutComponent = (props) => {
   return (
     <>
       <GlobalFonts />
@@ -24,11 +24,11 @@ const LayoutComponent = ({children}) => {
         pathname=""
         article=""
       />
-      <Layout>
+      <Layout location={props.location}>
         <SkipToContent href="#main"/>
         <Header/>
         <main id="main">
-          {children}
+          {props.children}
         </main>
       </Layout>
     </>
