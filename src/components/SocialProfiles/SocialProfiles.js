@@ -31,15 +31,15 @@ const List = styled.ul`
 const SocialProfilesComponent = (props) => {
     return (
       <List>
-        <li><a target="_blank" href="https://www.linkedin.com/in/jasonjgeiger/" >
+        <li><a href="https://www.linkedin.com/in/jasonjgeiger/" >
           <FontAwesomeIcon icon={faLinkedin} size="2x" aria-hidden="true" title="LinkedIn profile" />
           <span className="sr-only">LinkedIn profile</span>
         </a></li>
-        <li><a target="_blank" href="https://github.com/jasonjgeiger">
+        <li><a href="https://github.com/jasonjgeiger">
           <FontAwesomeIcon icon={faGithub} size="2x" aria-hidden="true" title="GitHub profile" />
           <span className="sr-only">GitHub profile</span>
         </a></li>
-        <li><a target="_blank" href="https://medium.com/@jasonjgeiger">
+        <li><a href="https://medium.com/@jasonjgeiger">
           <FontAwesomeIcon icon={faMedium} size="2x" aria-hidden="true" title="Medium profile" />
           <span className="sr-only">Medium profile</span>
         </a></li>

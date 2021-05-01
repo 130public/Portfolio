@@ -1,7 +1,7 @@
 import * as React from "react"
 import styled from 'styled-components';
 import {GlobalFonts,GlobalVars,GlobalStyles} from '../GlobalStyles/GlobalStyles'
-import SEO from '../Seo/Seo'
+import Seo from '../Seo/Seo'
 import SkipToContent from '../SkipToContent/SkipToContent'
 import Header from '../Header/Header'
 
@@ -17,7 +17,7 @@ const LayoutComponent = (props) => {
       <GlobalFonts />
       <GlobalVars />
       <GlobalStyles />
-      <SEO
+      <Seo
         title="Layout"
         description=""
         image=""

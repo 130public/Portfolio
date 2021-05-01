@@ -1,7 +1,7 @@
 import * as React from "react"
 import styled from 'styled-components'
 import algoliasearch from 'algoliasearch/lite';
-import {InstantSearch,Hits,SearchBox,Configure} from 'react-instantsearch-dom';
+import {InstantSearch,Hits,Configure} from 'react-instantsearch-dom';
 import Card from '../Card/Card'
 
 const hitsPerPage = 12;

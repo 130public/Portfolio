@@ -14,7 +14,7 @@ const ImageGrayscale = styled.img`
   transition: all 500ms;
 `
 const ImageComponent = (props) => {
-  const Variant = (props.variant == 'grayscale') ? <ImageGrayscale {...props} /> : <Image {...props}/>;
+  const Variant = (props.variant === 'grayscale') ? <ImageGrayscale {...props} /> : <Image {...props}/>;
 
   return Variant
 }
