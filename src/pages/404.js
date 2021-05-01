@@ -1,21 +1,23 @@
-import React from 'react'
-import SEO from '../components/seo'
-import Page from '../components/page'
+import * as React from "react"
+import styled from 'styled-components'
+import Layout from "../components/Layout/Layout"
+import Hero from "../components/Hero/Hero"
 
+const Main = styled.main`
+  padding-left:var(--gutter-md);
+  padding-right:var(--gutter-md);
+`
 
-
-class Fun extends React.Component {
-  render() {
-    return (
-      <Page>
-        <SEO 
-          title="Page not found" 
-          description=""
-        />
-        <h1>404</h1>
-        </Page>
-    )
-  }
+// markup
+const NotFoundPage = (props) => {
+  
+  return (
+    <Layout location={props.location}>
+      <Main>
+        <Hero className="default" title="404" body="😔 Sorry. we couldn’t find what you were looking for."/>
+      </Main>
+    </Layout>
+  )
 }
 
-export default Fun
+export default NotFoundPage

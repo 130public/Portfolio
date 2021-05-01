@@ -1,51 +1,28 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import SEO from '../components/seo'
-import Page from '../components/page'
-import Hero from '../components/hero'
-import Main from '../components/main'
-import Search from '../components/search'
+import * as React from "react"
+import styled from 'styled-components'
+import queryString from "query-string"
+import Layout from "../components/Layout/Layout"
+import Hero from "../components/Hero/Hero"
+import Resources from "../components/Resources/Resources";
 
-class SearchIndex extends React.Component {
-  render() {
-    const{data,location} = this.props;
-    const searchIndices = [
-      { name: `Resource`, title: `Resource`, hitComp: `Card` },
-      { name: `Page`, title: `Page`, hitComp: `Card` },
-      { name: `Project`, title: `Project`, hitComp: `Card` }
-    ]
+const Main = styled.main`
+  padding-left:var(--gutter-md);
+  padding-right:var(--gutter-md);
+`
 
-    return (
-      <Page className="fun">
-        <SEO 
-          title={data.contentfulPage.metaTitle} 
-          description={data.contentfulPage.metaDescription}
-        />
-        <Hero title={data.contentfulPage.title} title={data.contentfulPage.title} style="blank" />
-        <Main padTop='large' height='full' style="fun" offset={true} updatedAt={data.contentfulPage.updatedAt}>
-          <Search collapse indices={searchIndices}  />
-        </Main>
-      </Page>
-    )
-  }
+// markup
+const SearchPage = (props) => {
+  const queryObj = queryString.parse(props.location.search);
+  return (
+    <Layout location={props.location}>
+      <Main>
+        <Hero className="fun" title="Search" body="">
+          <p>Results for <u>{queryObj.query}</u></p>
+        </Hero>
+        <Resources query={queryObj.query} hitsPerPage={12} colWidth="20%" />
+      </Main>
+    </Layout>
+  )
 }
 
-export default SearchIndex
-
-export const searchPageQuery = graphql`
-  query searchPageQuery {
-    site {
-      siteMetadata {
-        title
-        url
-      }
-    }
-    contentfulPage(slug: { eq: "search" }) {
-      title,
-      slug,
-      metaTitle,
-      metaDescription,
-      updatedAt(formatString: "Y-MM-D")
-    }
-  }
-`
+export default SearchPage

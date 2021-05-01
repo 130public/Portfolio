@@ -1,122 +1,36 @@
-import React from 'react'
-import classNames from 'classnames/bind'
-import SEO from '../components/seo'
-import Page from '../components/page'
-import Main from '../components/main'
-import Hero from '../components/hero'
-import Link from '../components/link'
-import Card from "../components/card"
-import Markdown from '../components/markdown'
-import SocialProfiles from "../components/socialProfiles";
-import { graphql } from 'gatsby'
-//
-import gridStyles from '../components/search/search.module.scss'
-import indexStyles from './index.module.scss'
+import * as React from "react"
+import styled from 'styled-components'
+import Layout from "../components/Layout/Layout"
+import Hero from "../components/Hero/Hero"
+import Image from '../components/Image/Image'
+import Hash from  '../components/Hash/Hash'
+import SocialProfiles from '../components/SocialProfiles/SocialProfiles'
+import Resources from "../components/Resources/Resources";
 
-let cx = classNames.bind([indexStyles,gridStyles]);
+const Main = styled.main`
+  padding-left:var(--gutter-md);
+  padding-right:var(--gutter-md);
+`
 
-class Index extends React.Component {
-  constructor(props) {
-    super(props);
-
-    
-  }
-  render() {
-
-    const{data,location} = this.props;
-
-    let classes = cx([
-      indexStyles.root, this.props.className,
-    ]);
-    return (
-      <Page>
-        <SEO 
-          title={data.contentfulPage.metaTitle} 
-          description={data.contentfulPage.metaDescription}
-        />
-        <Hero style="fun" title={data.contentfulPage.title}>
-          <p className={indexStyles.hashtags}>
-            <b>Obligitory hashtags: </b><br/>
-            {data.contentfulPage.skills.map((node) => {
-              return <span key={node.id} className={indexStyles.hashtag}>#{node.name}</span>;
-            })}
+// markup
+const IndexPage = (props) => {
+  return (
+    <Layout location={props.location}>
+      <Main>
+        <Hero className="fun" title="" body="">
+        <h1><Image variant="grayscale" src="https://avatars.githubusercontent.com/u/448523?v=4" width="36px" /> Jason J Geiger</h1>
+          <p><strong>Obligitory hashtags:</strong></p>
+          <p>
+            <Hash string="human centric design" /><Hash string="user advocacy" /> <Hash string="experience strategy" /> <Hash string="user research" /> <Hash string="design thinking" /> <Hash string="ideation" /> <Hash string="prototyping" /> <Hash string="leadership" /> <Hash string="collaboration" /> <Hash string="learning psychology" /> <Hash string="information architecture" /> <Hash string="marketing" /> <Hash string="sketch" /> <Hash string="invision" /> <Hash string="nodejs" /> <Hash string="react" /> <Hash string="sass" />
           </p>
           <p><i>Portfolio available by request.</i></p>
           <SocialProfiles/>
         </Hero>
-        <Main padTop='none' height='auto' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
-          <p className={indexStyles.bio}><Markdown value={data.contentfulPage.body.body} /></p>
-          <h2>Recently read, watched, or listened</h2>
-          <div className={gridStyles.hits}>
-            <ul>
-                {data.contentfulPage.resources.map(( node ) => {
-                  return (
-                    <li key={node.id}>
-                      <Card hit={node} />
-                    </li>
-                  )
-                })}
-            </ul>
-          </div>
-          <Link type="button" to="/resources">More</Link>
-        </Main>
-        </Page>
-    )
-  }
+        <h2>Recently read, watched, or listened</h2>
+        <Resources hitsPerPage={12} colWidth="20%" />
+      </Main>
+    </Layout>
+  )
 }
 
-export default Index
-
-export const indexPageQuery = graphql`
-  query indexPageQuery {
-    site {
-      siteMetadata {
-        title
-        url
-      }
-    }
-    contentfulPage(slug: { eq: "index" }) {
-      title,
-      slug,
-      metaTitle,
-      metaDescription,
-      updatedAt(formatString: "Y-MM-DD")
-      body{
-        body
-      }
-      skills {
-        ... on ContentfulSkill {
-          id
-          name
-        }
-      }
-      resources {
-        ... on ContentfulResource {
-          id 
-          title
-          description
-          author
-          source
-          thumbnail{
-            file{
-              url
-              fileName
-            }
-            fluid(quality: 85, maxWidth: 320) {
-              src
-            }
-            title
-            description
-          }
-          skills {
-            ... on ContentfulSkill {
-              name
-            }
-          }
-          updatedAt(formatString: "Y-MM-DD")
-          createdAt(formatString: "Y-MM-DD")
-        }
-      }
-    }
-  }
-`
+export default IndexPage
