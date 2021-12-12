@@ -3,15 +3,7 @@ const PageIndexQuery = `{
   allSitePage {
     edges {
       node {
-        objectID: id
-        component
         path
-        componentChunkName
-        internal {
-          type
-          contentDigest
-          owner
-        }
       }
     }
   }

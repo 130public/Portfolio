@@ -61,7 +61,7 @@ export const filesPageQuery = graphql`
             url
         }
     }
-    contentfulPage(slug: { eq: "colophon" }) {
+    contentfulPage(slug: { eq: "the-end" }) {
         title,
         slug,
         metaTitle,

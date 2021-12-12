@@ -63,7 +63,7 @@ class Card extends React.Component {
     return (
       <Link hit={hit} className={styles.card}>
         <figure>
-          {hit.thumbnail.fluid !== undefined &&
+          {typeof hit.thumbnail !== "undefined" &&
           <div className={styles.image}>
             <img src={hit.thumbnail.fluid.src} title={hit.thumbnail.title} alt={hit.thumbnail.description}/>
           </div>}
