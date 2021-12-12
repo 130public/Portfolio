@@ -8,8 +8,9 @@ class ProjectCard extends React.Component {
     const { hit } = this.props;
     return (
       <figure className={styles.card}>
+        {console.log(hit)}
         <div className={styles.image}>
-          <img src={hit.thumbnail.file.url} title={hit.thumbnail.title} alt={hit.thumbnail.description}/>
+          
         </div>
         <figcaption className={styles.caption}>
           <h3 className="type--subtitle1">{hit.title}</h3>
