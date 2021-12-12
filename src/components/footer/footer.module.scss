@@ -5,6 +5,13 @@
   @extend .u-spacers--inside;
   background:black;
   z-index:1;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  img{
+    width:auto;
+    height:18px;
+  }
   @media screen and (max-width:400px){
     padding-left:1rem;
     padding-right:1rem;
