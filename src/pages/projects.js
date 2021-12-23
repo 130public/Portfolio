@@ -2,14 +2,10 @@ import * as React from "react"
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Layout from "../components/Layout/Layout"
+import Main from "../components/Main/Main"
 import Hero from "../components/Hero/Hero"
 import Grid from "../components/Grid/Grid"
 import Card from "../components/Card/Card"
-
-const Main = styled.main`
-  padding-left:var(--gutter-md);
-  padding-right:var(--gutter-md);
-`
 
 const Project = (props) => {
 
@@ -45,8 +41,8 @@ const ProjectPage = (props) => {
   ))
   return (
     <Layout location={props.location}>
+      <Hero className="default" title="Projects" body=""/>
       <Main>
-        <Hero className="default" title="Projects" body=""/>
         <Grid items={items} hitsPerPage={Object.keys(items).length} colWidth="20%" />
       </Main>
     </Layout>

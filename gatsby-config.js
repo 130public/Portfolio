@@ -5,7 +5,10 @@ const queries = require('./src/utilities/Algolia')
 
 module.exports = {
   siteMetadata: {
-    title: "Jason Geiger portfolio",
+    title: ` - The portfolio of Jason J Geiger`,
+    description: ``,
+    author: `Jason J Geiger`,
+    url: `/`
   },
   plugins: [
     {
@@ -44,6 +47,19 @@ module.exports = {
     },
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 800,
+            },
+          },
+        ],
+      },
+    },
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",

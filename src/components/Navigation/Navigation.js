@@ -34,7 +34,7 @@ const Navigation = styled.nav`
 const Frame = styled.div`
   @media screen and (max-width:var(--screen-md)){
     .frame{
-      padding-left:1rem;
+      padding-left:var(--font-xs);
       width: calc( 100vw );
       overflow-x: scroll;
     }
@@ -46,9 +46,9 @@ const List = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size:1rem;
-  line-height:1rem;
-  height:1.3rem;
+  font-size:var(--font-xs);
+  line-height:var(--font-xs);
+  height:var(--font-xs);
   @media screen and (max-width:var(--screen-md)){
     width:1000px;
   }
@@ -92,7 +92,7 @@ const NavigationComponent = (props) => {
             <Link to="/resources/">Resources</Link>
           </Item>
           <Item>
-            <Link to="/the-end/">Colophon</Link>
+            <Link to="/colophon/">Colophon</Link>
           </Item>
         </List>
       </Frame>

@@ -42,17 +42,15 @@ export const GlobalVars = createGlobalStyle`
     --theme-font-primary:"GT Pressura", -apple-system, Arial, sans-serif;
     --theme-font-secondary:"GT Pressura Mono", 'Courier New', Courier, monospace;
     
-    
-
     --screen-md: 400px;
     --screen-lg: 521px;
 
-    --base-size:16px;
+    --base-size:20px;
     --font-xs: 0.875rem;
     --font-sm: 1.0rem;
-    --font-md: 1.25rem;
+    --font-md: 1.15rem;
     --font-lg: 1.5rem;
-    --font-xl: 2.0rem;
+    --font-xl: 2.15rem;
 
     --gutter-xs:0.5rem;
     --gutter-sm:1rem;
@@ -66,10 +64,8 @@ export const GlobalVars = createGlobalStyle`
   }
 `;
 export const GlobalStyles = createGlobalStyle`
-  html,body{margin:0;padding:0;}
+  html,body{margin:0;padding:0;font-size:20px;line-height: 1.5;}
   body {
-    font-size:var(--base-size);
-    line-height: 1.5;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     background:var(--theme-bg-color);
@@ -79,12 +75,29 @@ export const GlobalStyles = createGlobalStyle`
       /* font-size: var(--font-sm)rem; */
     }
   }
+  h1{
+    font-size:var(--font-xl);
+  }
+  h2{
+    font-size:var(--font-lg);
+  }
+  h3{
+    font-size:var(--font-md);
+  }
+  p{
+    font-size:var(--font-sm);
+  }
   a{
     color:$blue;
     text-decoration: none;
   }
   p>a{
-    box-shadow: inset 0 -0.0625em 0 0 black;
+    box-shadow: inset 0 -0.0625em 0 0 var(--text-primary);
+  }
+  .inverse p>a,
+  p>a.invert{
+    color:var(--text-secondary);
+    box-shadow: inset 0 -0.0625em 0 0 var(--text-secondary);
   }
   pre{
     white-space: pre-wrap;

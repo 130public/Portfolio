@@ -10,6 +10,9 @@ const Layout = styled.div`
   color:var(--text-primary);
   font-family:"GT Pressura", -apple-system, Arial, sans-serif;
 `
+const Content = styled.div`
+
+`
 
 const LayoutComponent = (props) => {
   return (
@@ -27,9 +30,9 @@ const LayoutComponent = (props) => {
       <Layout location={props.location}>
         <SkipToContent href="#main"/>
         <Header/>
-        <main id="main">
+        <Content id="main">
           {props.children}
-        </main>
+        </Content>
       </Layout>
     </>
   )

@@ -85,15 +85,12 @@ const LinkText = styled.span`
   }
 `
 const hasFigure = (thumbnail) => {
-  if (typeof thumbnail ==='object'){
     return (
       <Figure>
-        <img src={thumbnail.file.url} alt={thumbnail.title} />
+        {/* <pre>{JSON.stringify(thumbnail,null,2)}</pre> */}
+        <img src={'http://via.placeholder.com/1600x900'} alt={thumbnail.title} />
       </Figure>
     )
-  } else{
-    return '';
-  }
 }
 
 const CardComponent = (props) => {
@@ -105,7 +102,7 @@ const CardComponent = (props) => {
           <span className="title">{title}</span>
         </Header>
         <Body>
-          <p className="body">{description}<br/>{author}</p>
+          {/* <p className="body">{description}<br/>{author}</p> */}
           <pre className="body">{JSON.stringify(skills)}</pre>
           <LinkText className="link">External link <FontAwesomeIcon size="xs" icon={faExternalLinkAlt} /></LinkText>
         </Body>

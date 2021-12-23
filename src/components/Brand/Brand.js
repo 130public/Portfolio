@@ -6,8 +6,8 @@ import GatsbyLink from 'gatsby-link'
 const BrandLink = styled(GatsbyLink)`
   position: relative;
   margin-right:var(--gutter-sm);
-  font-size:1rem;
-  line-height: 1rem;
+  font-size:var(--font-xs);
+  line-height: var(--font-xs);
   font-family:var(--theme-font-secondary);
   font-weight:700;
   text-transform:uppercase;

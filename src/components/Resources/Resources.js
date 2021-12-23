@@ -4,7 +4,7 @@ import algoliasearch from 'algoliasearch/lite';
 import {InstantSearch,Hits,Configure} from 'react-instantsearch-dom';
 import Card from '../Card/Card'
 
-const hitsPerPage = 12;
+const hitsPerPage = null;
 
 const HitsStyled = styled(Hits)`
   ul{
@@ -43,7 +43,6 @@ function Hit(props) {
 }
 
 const ResourcesComponent = (props) => {
-  console.log(props.query);
   return (
     <>
       <InstantSearch searchClient={searchClient} indexName={"Resource"}>
