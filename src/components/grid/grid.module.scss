@@ -5,7 +5,7 @@
     padding:0;
     width:100%;
     display:grid;
-    align-items: stretch;
+    align-items: space-between;
     grid-column-gap: 16px;
     grid-row-gap: 16px;
     grid-template-columns: repeat(1, 1fr);

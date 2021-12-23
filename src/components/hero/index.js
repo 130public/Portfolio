@@ -20,7 +20,7 @@ class Hero extends React.Component {
         {/* <Animation /> */}
         <h1 className={styles.headline}>{this.props.title}</h1>
         <div className={styles.body}>
-          <p><Markdown value={this.props.body} /></p>
+          <Markdown value={this.props.body} />
           {this.props.children}
         </div>
       </div>

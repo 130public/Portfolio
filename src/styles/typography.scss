@@ -113,9 +113,15 @@ Context
 a{
   color:$blue;
   text-decoration: none;
+  &:focus{
+    outline: none;
+  }
 }
 p>a{
-  box-shadow: inset 0 -0.0625em 0 0 black;
+  box-shadow:inset 0 -0.0625rem 0 #000000;
+  &:hover, &:focus{
+    box-shadow: inset 0 -0.125em 0 0 $blue;
+  }
 }
 .button{
   display: inline-block;

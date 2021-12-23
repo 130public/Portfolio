@@ -19,9 +19,10 @@
   background:black;
   box-shadow: none;
   transition: all 500ms;
-  &:hover{
+  &:hover,&:focus{
     color:white;
     border-color:$blue;
     background:$blue;
+    outline: none;
   }
 }
