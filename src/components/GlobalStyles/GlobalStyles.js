@@ -38,7 +38,8 @@ export const GlobalVars = createGlobalStyle`
     --theme-color-secondary:#6219ee;
     --theme-color-tertiary:#666666;
     --theme-color-text:#212121;
-    --theme-bg-color:#f1f1f1;
+    --theme-fg-color:#212121;
+    --theme-bg-color:#f9f9f9;
     --theme-font-primary:"GT Pressura", -apple-system, Arial, sans-serif;
     --theme-font-secondary:"GT Pressura Mono", 'Courier New', Courier, monospace;
     
@@ -52,6 +53,7 @@ export const GlobalVars = createGlobalStyle`
     --font-lg: 1.5rem;
     --font-xl: 2.15rem;
 
+    --layout-margin:150px;
     --gutter-xs:0.5rem;
     --gutter-sm:1rem;
     --gutter-md:2rem;

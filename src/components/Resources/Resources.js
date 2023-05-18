@@ -48,7 +48,7 @@ const ResourcesComponent = (props) => {
       <InstantSearch searchClient={searchClient} indexName={"Resource"}>
         {/* <SearchBox /> */}
         <Configure query={props.query} hitsPerPage={hitsPerPage || 1000} />
-        <HitsStyled minColWidth={props.colWidth || "25%"} hitComponent={Hit} />
+        <HitsStyled minColWidth={props.colWidth || "31%"} hitComponent={Hit} />
       </InstantSearch>
     </>
   );

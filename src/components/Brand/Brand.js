@@ -11,10 +11,14 @@ const BrandLink = styled(GatsbyLink)`
   font-family:var(--theme-font-secondary);
   font-weight:700;
   text-transform:uppercase;
+  transition: all ease-in-out .3s;
+  *{
+    transition: all ease-in-out .3s;
+  }
   .left{
-    color:white;
-    border:2px solid black;
-    background:black;
+    color:var(--theme-bg-color);
+    border:2px solid var(--theme-fg-color);
+    background-color:var(--theme-fg-color);
     margin-right:0.25rem;
     padding:0 0.25rem;
   }
@@ -23,19 +27,19 @@ const BrandLink = styled(GatsbyLink)`
   }
   .right{
     padding:0 0.25rem;
-    color:black;
-    border:2px solid black;
-    background:white;
+    color:var(--theme-fg-color);
+    border:2px solid var(--theme-fg-color);
+    background:var(--theme-bg-color);
   }
   &:hover .left{
-    color:white;
-    background:$blue;
-    border-color:$blue;
+    color:var(--theme-bg-color);
+    background:var(--theme-color-primary);
+    border-color:var(--theme-color-primary);
   }
   &:hover .right{
-    color:$blue;
-    background:white;
-    border-color:$blue;
+    color:var(--theme-color-primary);
+    background:var(--theme-bg-color);
+    border-color:var(--theme-color-primary);
   }
 `;
 const BrandComponent = (props) => {

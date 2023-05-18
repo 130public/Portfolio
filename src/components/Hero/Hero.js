@@ -6,9 +6,9 @@ const Hero = styled.div.attrs((props) => ({}))`
   position:relative;
   margin-bottom: var(--gutter-sm);
   padding-top:var(--gutter-lg);
-  padding-right:var(--gutter-xl);
+  padding-right:var(--layout-margin);
   padding-bottom:var(--gutter-lg);
-  padding-left:var(--gutter-xl);
+  padding-left:var(--layout-margin);
   &.default{
     color:white;
     background:var(--text-primary);

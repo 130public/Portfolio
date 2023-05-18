@@ -39,10 +39,6 @@ const SocialProfilesComponent = (props) => {
           <FontAwesomeIcon icon={faGithub} size="2x" aria-hidden="true" title="GitHub profile" />
           <span className="sr-only">GitHub profile</span>
         </a></li>
-        <li><a href="https://medium.com/@jasonjgeiger">
-          <FontAwesomeIcon icon={faMedium} size="2x" aria-hidden="true" title="Medium profile" />
-          <span className="sr-only">Medium profile</span>
-        </a></li>
       </List>
     );
   }

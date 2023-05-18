@@ -4,8 +4,8 @@ import styled from 'styled-components'
 
 
 const Main = styled.main`
-  padding-left:var(--gutter-xl);
-  padding-right:var(--gutter-xl);
+  padding-left:var(--layout-margin);
+  padding-right:var(--layout-margin);
 `
 
 const MainComponent = (props) => {

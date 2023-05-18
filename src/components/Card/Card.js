@@ -1,6 +1,7 @@
 import * as React from "react"
 import styled from 'styled-components'
 import GatsbyLink from 'gatsby-link'
+import Truncate from '../Truncate/Truncate'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 
@@ -9,8 +10,9 @@ const Link = styled(GatsbyLink)`
   padding:0;
   color:black;
   border:2px solid black;
-  display:flex;
+  display: flex;
   flex-direction: column;
+  justify-content:start;
   overflow:hidden;
   height:100%;
   &:hover,&:focus{
@@ -70,13 +72,23 @@ const Figure = styled.figure`
 `
 
 const Header = styled.header`
-  font-size:var(--font-md);
+  flex: 0 1 auto; 
+  font-size:var(--font-sm);
   font-weight:700;
-  padding: var(--gutter-sm) var(--gutter-sm) var(--gutter-xs);
+  padding: var(--gutter-sm) var(--gutter-sm) 0;
   
 `
-
 const Body =  styled.section`
+  flex: 1 1 auto;
+  padding: var(--gutter-xs) var(--gutter-sm) 0;
+`
+const Skills =  styled.p`
+  margin:0;
+  padding:0;
+  font-size:var(--font-xs);
+`
+const Footer =  styled.footer`
+  flex: 0 1 auto; 
   padding: var(--gutter-xs) var(--gutter-sm) var(--gutter-sm);
 `
 const LinkText = styled.span`
@@ -88,24 +100,46 @@ const hasFigure = (thumbnail) => {
     return (
       <Figure>
         {/* <pre>{JSON.stringify(thumbnail,null,2)}</pre> */}
-        <img src={'http://via.placeholder.com/1600x900'} alt={thumbnail.title} />
+        <img src={thumbnail.fluid.src} title={thumbnail.title} alt={thumbnail.description}/>
       </Figure>
     )
 }
+const Skillslist = props => {
+  const {data,count} = props;
+  var skillString ="";
 
+  if(data != undefined){
+    const sliceCount = (count != undefined) ? count : data.length;
+    var ending = ";"
+    data.slice(0, sliceCount).map(( {name}, index ) => {
+
+      if(index < sliceCount-1) ending = ", "
+      if(index == data.length-1) ending = ""
+      if(index == sliceCount-1) ending = "…"
+      
+      skillString += name+ending;
+    })
+  }
+  return skillString;
+}
 const CardComponent = (props) => {
     const {title, description, author, skills, source, thumbnail, __position} = props.hit;
     return (
       <Link to={source} aria-label={'Item '+__position+' of '+props.hitsPerPage+', External resource to '+title}>
         {hasFigure(thumbnail)}
         <Header id={title}>
-          <span className="title">{title}</span>
+          <span className="title"><Truncate type="both" length="50">{title}</Truncate></span>
         </Header>
         <Body>
-          {/* <p className="body">{description}<br/>{author}</p> */}
-          <pre className="body">{JSON.stringify(skills)}</pre>
-          <LinkText className="link">External link <FontAwesomeIcon size="xs" icon={faExternalLinkAlt} /></LinkText>
+          {skills !== undefined &&
+            <Skills>
+              Topics: <Skillslist data={skills} count={3} />
+            </Skills>
+          }
         </Body>
+        <Footer>
+          <LinkText className="link">External link <FontAwesomeIcon size="xs" icon={faExternalLinkAlt} /></LinkText>
+        </Footer>
       </Link>
     );
   }

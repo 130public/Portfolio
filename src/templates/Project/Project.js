@@ -10,8 +10,8 @@ import ProjectFooter from "./Footer"
 const ProjectHero = styled(Hero)`
   &.gutter-0{
     padding-top:0;
-    padding-left: var(--gutter-xl);
-    padding-right: var(--gutter-xl);
+    padding-left: var(--layout-margin);
+    padding-right: var(--layout-margin);
     padding-bottom:var(--gutter-sm);
     border:0;
   }
@@ -65,8 +65,7 @@ export const projectQuery = graphql`
         role
         cover
         project_type
-        client
-        responibilty
+        
       }
     }
   }

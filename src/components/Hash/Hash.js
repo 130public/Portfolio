@@ -4,8 +4,8 @@ import GatsbyLink from 'gatsby-link'
 
 const Hash = styled(GatsbyLink)`
   display:inline-block;
-  padding-right:var(--gutter-xs);
-  color: var(--text-secondary);
+  margin-right:var(--gutter-xs);
+  color: var(--text-primary);
   text-decoration:none;
   &:hover{
     span{
