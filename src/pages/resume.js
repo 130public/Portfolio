@@ -17,7 +17,7 @@ class Resume extends React.Component {
           description={data.contentfulPage.metaDescription}
         />
         <Hero title="Jason J. Geiger" body={data.contentfulPage.body.body} style="default">
-          <p><i>Portfolio available by request.</i></p>
+          <p><i>Portfolio available by request.</i> For a more detailed account of work experience <a href="https://www.linkedin.com/in/jasonjgeiger/">check out LinkedIn</a>.</p>
           <a href="/assets/jasonjgeiger-resume.pdf" target="_blank">Download PDF resume</a>
         </Hero>
         <Main padTop='large' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
