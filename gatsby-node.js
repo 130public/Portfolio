@@ -2,10 +2,10 @@ const Promise = require('bluebird')
 const path = require('path')
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+  const { createPage } = boundActionCreators;
+  /*
   const projectTemplate = path.resolve('./src/components/project/index.js')
-	const noteTemplate = path.resolve('src/components/note/index.js');
-
+  const noteTemplate = path.resolve('src/components/note/index.js');
   const projects = new Promise((resolve, reject) => {
     resolve(
       graphql(
@@ -39,7 +39,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       })
     )
   })
-  
   const notes = new Promise((resolve, reject) => {
     resolve(
       graphql(
@@ -82,6 +81,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       })
     )
   })
-
   return Promise.all([projects, notes]);
+  */
 }
