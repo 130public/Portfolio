@@ -24,9 +24,9 @@ class Resume extends React.Component {
           <article className="article">
             <h2>Work History</h2>
             <div className={styles.workItem}>
-              <h3>Microsoft - Senior User Experience Designer</h3>
+              <h3>Microsoft - Principal Designer</h3>
               <p className={styles.timeline}>October 2016 - Present</p>
-              <p>UX designer with Worldwide Learning, creating innovative learning solutions that empower people to gain influential skills for the 21st century job force.</p>
+              <p>Currently designing for Windows Education creating innovative learning solutions that empower people to gain influential skills for the 21st century job force.</p>
             </div>
             <div className={styles.workItem}>
               <h3>Fisher - Senior Interactive Designer/Developer &amp; Team Lead</h3>
