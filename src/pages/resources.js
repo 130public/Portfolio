@@ -20,7 +20,7 @@ class ResourcesIndex extends React.Component {
         />
         <Hero title={data.contentfulPage.title} body={data.contentfulPage.body.body} className="margin" />
         <Main padTop='large' style="white" offset={true} updatedAt={data.contentfulPage.updatedAt}>
-          <Search collapse indices={searchIndices} />
+          <Search collapse indices={searchIndices} location={location} />
         </Main>
       </Page>
     )

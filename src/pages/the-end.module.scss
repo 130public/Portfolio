@@ -1,4 +1,4 @@
-@import '../styles/base.scss';
+@use '../styles/base' as *;
 .table{
     @extend .table-wrapper;
     @media screen and (max-width:400px){

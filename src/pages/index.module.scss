@@ -1,4 +1,4 @@
-@import '../styles/base.scss';
+@use '../styles/base' as *;
 .hashtags{
   @extend .type--headline6;
   white-space: normal;

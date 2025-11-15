@@ -21,9 +21,6 @@ const ResourceIndexQuery = `{
             url
             fileName
           }
-          fluid(quality: 85, maxWidth: 320) {
-            src
-          }
           title
           description
         }
@@ -48,8 +45,9 @@ const ProjectIndexQuery = `{
             description
           }
           thumbnail{
-            fluid(quality: 10, maxWidth: 320) {
-              src
+            file{
+              url
+              fileName
             }
             title
             description

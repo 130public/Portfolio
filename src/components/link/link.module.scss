@@ -1,4 +1,4 @@
-@import '../../styles/base.scss';
+@use '../../styles/base' as *;
 .link{
   box-shadow: inset 0 -0.125em 0 0 black;
   text-decoration: none;

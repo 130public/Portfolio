@@ -102,9 +102,7 @@ export const indexPageQuery = graphql`
               url
               fileName
             }
-            fluid(quality: 85, maxWidth: 320) {
-              src
-            }
+            gatsbyImageData(width: 320, quality: 85, placeholder: BLURRED)
             title
             description
           }

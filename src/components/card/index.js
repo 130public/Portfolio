@@ -2,6 +2,7 @@ import React from "react";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faExternalLinkAlt} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 library.add(faExternalLinkAlt);
 import Link from '../link'
@@ -60,12 +61,20 @@ class Card extends React.Component {
       }
       return skillString;
     }
+    // Try to get GatsbyImage data, fallback to regular image URL
+    const image = hit.thumbnail?.gatsbyImageData ? getImage(hit.thumbnail.gatsbyImageData) : null;
+    const imageUrl = hit.thumbnail?.file?.url;
+
     return (
       <Link hit={hit} className={styles.card}>
         <figure>
-          {typeof hit.thumbnail !== "undefined" &&
+          {typeof hit.thumbnail !== "undefined" && (image || imageUrl) &&
           <div className={styles.image}>
-            <img src={hit.thumbnail.fluid.src} title={hit.thumbnail.title} alt={hit.thumbnail.description}/>
+            {image ? (
+              <GatsbyImage image={image} title={hit.thumbnail.title} alt={hit.thumbnail.description || hit.thumbnail.title || hit.title}/>
+            ) : (
+              <img src={imageUrl} title={hit.thumbnail.title} alt={hit.thumbnail.description || hit.thumbnail.title || hit.title}/>
+            )}
           </div>}
           <figcaption className={styles.caption}>
             <h3 className={styles.heading}>{hit.title}</h3>

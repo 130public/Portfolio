@@ -24,7 +24,12 @@ class Resume extends React.Component {
           <article className="article">
             <h2>Work History</h2>
             <div className={styles.workItem}>
-              <h3>Microsoft - Principal Designer</h3>
+              <h3>Windows 11 - Principal Designer</h3>
+              <p className={styles.timeline}>June 2023 - Present</p>
+              <p>Designing the future of the Windows 11 operating system.</p>
+            </div>
+            <div className={styles.workItem}>
+              <h3>Microsoft EDU - Principal Designer</h3>
               <p className={styles.timeline}>October 2016 - Present</p>
               <p>Currently designing for Windows Education creating innovative learning solutions that empower people to gain influential skills for the 21st century job force.</p>
             </div>

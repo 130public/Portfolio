@@ -1,7 +1,10 @@
-@import 'settings.scss';
-@import 'utilities.scss';
-@import 'typography.scss';
-@import 'images.scss';
+@forward 'settings';
+@forward 'utilities';
+@forward 'typography';
+@forward 'images';
+
+@use 'settings' as *;
+
 :root {}
 html {
   box-sizing: border-box;

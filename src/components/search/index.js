@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
+import algoliasearch from 'algoliasearch/lite'
 import {
   InstantSearch,
   Index,
@@ -12,6 +13,11 @@ import Input from './input'
 import AlgoliaLogo from './algoliaLogo'
 import * as hitComps from './hits'
 import styles from './search.module.scss'
+
+const searchClient = algoliasearch(
+  process.env.GATSBY_ALGOLIA_APPID || '',
+  process.env.GATSBY_ALGOLIA_APIKEY || ''
+)
 
 
 //FORMATING
@@ -36,8 +42,7 @@ class Search extends Component {
 
     return (
       <InstantSearch
-        appId={process.env.ALGOLIA_APPID}
-        apiKey={process.env.ALGOLIA_APIKEY}
+        searchClient={searchClient}
         indexName={indices[0].name}
       >
         <div>
@@ -69,7 +74,8 @@ Search.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }),
-  location: PropTypes.object.isRequired,
+  location: PropTypes.object,
+  indices: PropTypes.array.isRequired,
 };
 
 export default Search

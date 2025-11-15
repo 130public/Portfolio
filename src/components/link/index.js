@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from 'classnames/bind';
-import GatsbyLink from 'gatsby-link'
+import { Link as GatsbyLink } from 'gatsby'
 import linkStyles from "./link.module.scss";
 
 let cx = classNames.bind(linkStyles);

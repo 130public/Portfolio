@@ -1,4 +1,4 @@
-@import '../../styles/base.scss';
+@use '../../styles/base' as *;
 label{
   font-size:18px;
   padding-bottom:3px;

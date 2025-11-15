@@ -1,46 +1,14 @@
 import React from "react"
-import posed from 'react-pose';
+// import posed from 'react-pose'; // Deprecated - removed
 import styles from './hero-animation.module.scss'
 
-const Box = posed.div({
-  hidden: { 
-    scaleX: 0.75,
-    scaleY: 0.75
-  },
-  visible: { 
-    scaleX: 1,
-    scaleY: 1,
-    rotation: 240,
-    transition: ({ from, to }) => ({
-      type: 'keyframes',
-      values: [from, 5, 10],
-      times: [0, 0.25, 5]
-    })
-  }
-})
+// Removed react-pose animation component as it's deprecated
+// TODO: Replace with framer-motion or CSS animations if needed
 
 class HeroAnimation extends React.Component {
-  state = { isVisible: true };
-
-  constructor(props) {
-    super(props);
-    this.targets = [];
-  }
-
-  
-  componentDidMount() {
-    setInterval(() => {
-      this.setState({ isVisible: !this.state.isVisible });
-    }, 1000);
-  }
-
-
   render() {
-    const { isVisible } = this.state;
     return (
       <div className={styles.animation}>
-          <Box  className={styles.poseDemo} pose={ isVisible ? 'visible' : 'hidden' } />
-          <hr/>
           <svg className={styles.large} viewBox="0 0 96 96">
             <defs>
               <linearGradient id="circleGradient" x1="0%" x2="100%" y1="20%" y2="80%">
