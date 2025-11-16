@@ -5,6 +5,9 @@ const PageIndexQuery = `{
       node {
         id
         path
+        internal {
+          contentDigest
+        }
       }
     }
   }
@@ -33,6 +36,9 @@ const ResourceIndexQuery = `{
         }
         updatedAt
         createdAt
+        internal {
+          contentDigest
+        }
       }
     }
   }
@@ -58,6 +64,9 @@ const ProjectIndexQuery = `{
           body{
             body
           }
+          internal {
+            contentDigest
+          }
         }
     }
   }
@@ -65,7 +74,7 @@ const ProjectIndexQuery = `{
 
 const flatten = arr =>
   arr.map(({ node }) => {
-    const { internal, parent, children, ...rest } = node
+    const { parent, children, ...rest } = node
     return {
       objectID: node.id,
       ...rest,

@@ -2,6 +2,7 @@
 .DS_Store
 .npm
 .eslintcache
+.env
 .env.development
 .env.production
 .cache
