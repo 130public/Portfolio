@@ -21,6 +21,54 @@ if (!spaceId || !accessToken) {
 
 
 //PLUGINS
+const plugins = [
+  'gatsby-transformer-remark',
+  'gatsby-plugin-react-helmet',
+  'gatsby-plugin-image',
+  'gatsby-plugin-sharp',
+  'gatsby-transformer-sharp',
+  {
+    resolve: 'gatsby-source-contentful',
+    options: contentfulConfig,
+  },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `src`,
+      path: `${__dirname}/src/`,
+    },
+  },
+  {
+    resolve: `gatsby-plugin-sass`,
+    options: {
+      cssLoaderOptions: {
+        modules: {
+          auto: true,
+          exportLocalsConvention: 'camelCaseOnly',
+          namedExport: false
+        }
+      },
+      sassOptions: {
+        api: 'modern',
+        silenceDeprecations: ['import', 'legacy-js-api']
+      }
+    },
+  },
+]
+
+// Only enable Algolia indexing if admin API key is provided
+if (process.env.ALGOLIA_ADMIN_KEY) {
+  plugins.push({
+    resolve: 'gatsby-plugin-algolia',
+    options: {
+      appId: `${process.env.ALGOLIA_APPID}`,
+      apiKey: `${process.env.ALGOLIA_ADMIN_KEY}`,
+      queries,
+      chunkSize: 100000,
+    },
+  })
+}
+
 module.exports = {
   pathPrefix: '/gatsby-contentful-starter',
   siteMetadata: {
@@ -29,48 +77,5 @@ module.exports = {
     author: `Jason J Geiger`,
     url: `/`
   },
-  plugins: [
-    'gatsby-transformer-remark',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-image',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    {
-      resolve: 'gatsby-source-contentful',
-      options: contentfulConfig,
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `src`,
-        path: `${__dirname}/src/`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-sass`,
-      options: {
-        cssLoaderOptions: {
-          modules: {
-            auto: true,
-            exportLocalsConvention: 'camelCaseOnly',
-            namedExport: false
-          }
-        },
-        sassOptions: {
-          api: 'modern',
-          silenceDeprecations: ['import', 'legacy-js-api']
-        }
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-algolia',
-      options: {
-        appId: `${process.env.ALGOLIA_APPID}`,
-        apiKey: `${process.env.ALGOLIA_APIKEY}`,
-        //indexName: process.env.ALGOLIA_INDEXNAME, // for all queries
-        queries,
-        chunkSize: 100000, // default: 1000
-      },
-    },
-  ],
+  plugins,
 }

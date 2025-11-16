@@ -5,3 +5,6 @@
 [build.environment]
   NODE_VERSION = "22"
   NPM_FLAGS = "--legacy-peer-deps"
+
+# Add ALGOLIA_ADMIN_KEY in Netlify UI if you want to re-index Algolia during builds
+# The search functionality will work without it using GATSBY_ALGOLIA_APIKEY
