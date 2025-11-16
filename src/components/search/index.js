@@ -14,12 +14,6 @@ import AlgoliaLogo from './algoliaLogo'
 import * as hitComps from './hits'
 import styles from './search.module.scss'
 
-const searchClient = algoliasearch(
-  process.env.GATSBY_ALGOLIA_APPID || '',
-  process.env.GATSBY_ALGOLIA_APIKEY || ''
-)
-
-
 //FORMATING
 const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) =>
@@ -35,6 +29,12 @@ class Search extends Component {
 
   constructor(props) {
     super(props);
+
+    // Initialize Algolia search client with environment variables
+    this.searchClient = algoliasearch(
+      process.env.GATSBY_ALGOLIA_APPID || '',
+      process.env.GATSBY_ALGOLIA_APIKEY || ''
+    );
   }
 
   render() {
@@ -42,7 +42,7 @@ class Search extends Component {
 
     return (
       <InstantSearch
-        searchClient={searchClient}
+        searchClient={this.searchClient}
         indexName={indices[0].name}
       >
         <div>
