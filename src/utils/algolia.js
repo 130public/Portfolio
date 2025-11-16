@@ -64,10 +64,13 @@ const ProjectIndexQuery = `{
 }`
 
 const flatten = arr =>
-  arr.map(({ node }) => ({
-    objectID: node.id,
-    ...node,
-  }))
+  arr.map(({ node }) => {
+    const { internal, parent, children, ...rest } = node
+    return {
+      objectID: node.id,
+      ...rest,
+    }
+  })
 const settings = { attributesToSnippet: [`excerpt:20`] }
 
 const queries = [
