@@ -3,6 +3,7 @@ const PageIndexQuery = `{
   allSitePage {
     edges {
       node {
+        id
         path
       }
     }
@@ -12,6 +13,7 @@ const ResourceIndexQuery = `{
   allContentfulResource {
     edges {
       node {
+        id
         title
         description
         author
@@ -39,6 +41,7 @@ const ProjectIndexQuery = `{
   allContentfulProject {
     edges {
         node {
+          id
           title
           slug
           description{
@@ -61,9 +64,9 @@ const ProjectIndexQuery = `{
 }`
 
 const flatten = arr =>
-  arr.map(({ node: { frontmatter, ...rest } }) => ({
-    ...frontmatter,
-    ...rest,
+  arr.map(({ node }) => ({
+    objectID: node.id,
+    ...node,
   }))
 const settings = { attributesToSnippet: [`excerpt:20`] }
 
