@@ -68,13 +68,13 @@
     "url": "git+https://github.com/jasonjgeiger/portfolio.git"
   },
   "scripts": {
-    "dev": "gatsby develop",
+    "dev": "NODE_OPTIONS='--no-deprecation' gatsby develop",
     "clean": "gatsby clean",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md' 'bin/*.js'",
-    "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "build": "NODE_OPTIONS='--no-deprecation' gatsby build",
+    "deploy": "NODE_OPTIONS='--no-deprecation' gatsby build --prefix-paths && gh-pages -d public",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix *.js bin/*.js",
     "cleanup-repository": "rimraf bin contentful && yarn remove contentful-import chalk inquirer rimraf "
   }
